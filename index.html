@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One DSS | Strategic Wayfinding</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            navy: '#0B1F3F',     // Deep Corporate Navy
+                            gold: '#D4AF37',     // Premium Gold
+                            cyan: '#00A4B4',     // Modern Cyan
+                            light: '#F8FAFC',    // Background White
+                            slate: '#334155'     // Text
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Playfair Display', 'serif'] // Assuming a premium serif for headers if available, else fallback
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8FAFC;
+            color: #334155;
+            scroll-behavior: smooth;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px; 
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .step-connector::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 100%;
+            width: 100%;
+            height: 2px;
+            background-color: #E2E8F0;
+            z-index: 0;
+            transform: translateY(-50%);
+        }
+        .step-connector:last-child::after {
+            display: none;
+        }
+        .menu-card {
+            transition: all 0.3s ease;
+        }
+        .menu-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+    <!-- Chosen Palette: Corporate Premium (Deep Navy, Gold, Cyan, Slate) -->
+    <!-- Application Structure Plan: 
+         1. Hero: High-impact branding "One DSS", clear value prop.
+         2. The Pivot: Interactive "From/To" comparison to establish the new mindset.
+         3. Capability Radar: Visualization of the 3 integrated pillars (Strategy, Service, Analytics).
+         4. Menu of Impact (Interactive Tool): A problem-solution selector for Branch Managers to find their specific use case.
+         5. The Process (Leadership Triage): Interactive flow diagram showing how to engage.
+         6. Proof Points: Cards detailing EFRS and Framework wins.
+         Rationale: This structure moves from "Why we changed" -> "What we offer" -> "How it helps YOU" -> "How to start".
+    -->
+    <!-- Visualization & Content Choices:
+         - Radar Chart: To show the holistic balance of the new "One DSS" team compared to the old siloed model.
+         - Line Chart: To visualize "Value over Time" (Early intervention vs. Late checklist).
+         - Interactive Problem Matrix: To make the "Menu of Impact" 2-pager digestible and actionable.
+         - NO SVG/Mermaid: Used FontAwesome and CSS shapes.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+</head>
+<body class="antialiased">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-brand-navy shadow-lg text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <span class="font-bold text-xl tracking-wider text-brand-gold"><i class="fa-solid fa-compass mr-2"></i>ONE DSS</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#paradigm" class="hover:bg-brand-cyan hover:text-white px-3 py-2 rounded-md text-sm font-medium transition">The Shift</a>
+                        <a href="#pillars" class="hover:bg-brand-cyan hover:text-white px-3 py-2 rounded-md text-sm font-medium transition">Capabilities</a>
+                        <a href="#menu-of-impact" class="hover:bg-brand-cyan hover:text-white px-3 py-2 rounded-md text-sm font-medium transition">Menu of Impact</a>
+                        <a href="#ai-triage" class="hover:bg-brand-cyan hover:text-white px-3 py-2 rounded-md text-sm font-medium transition"><i class="fa-solid fa-sparkles text-brand-gold"></i> AI Scoper</a>
+                        <a href="#process" class="hover:bg-brand-cyan hover:text-white px-3 py-2 rounded-md text-sm font-medium transition">Engagement</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-brand-navy relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 relative z-10">
+            <div class="text-center">
+                <h1 class="text-4xl tracking-tight font-extrabold text-white sm:text-5xl md:text-6xl">
+                    <span class="block text-brand-gold mb-2">Sense-Makers. Wayfinders.</span>
+                    <span class="block text-brand-cyan">Strategic Partners.</span>
+                </h1>
+                <p class="mt-6 max-w-2xl mx-auto text-xl text-gray-300">
+                    Navigating complexity. Aligning resources. Driving measurable impact.
+                    Don't bring us in at the end to check a box. Bring us in at the beginning to clear the path.
+                </p>
+                <div class="mt-10 max-w-sm mx-auto sm:max-w-none sm:flex sm:justify-center">
+                    <a href="#menu-of-impact" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-brand-navy bg-brand-gold hover:bg-yellow-400 md:py-4 md:text-lg md:px-10 transition shadow-lg">
+                        Explore Our Services
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Paradigm Shift Section -->
+    <section id="paradigm" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-base text-brand-cyan font-semibold tracking-wide uppercase">The Paradigm Shift</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-brand-navy sm:text-4xl">
+                    From Enforcers to Partners
+                </p>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 mx-auto">
+                    The municipal landscape is too complex for end-of-pipe compliance. We have fundamentally restructured from siloed teams (SER & BPP) into One Unified DSS.
+                </p>
+            </div>
+
+            <!-- Interactive Comparison -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <!-- Chart: Value Delivery Curve -->
+                <div class="bg-gray-50 p-6 rounded-xl shadow-inner border border-gray-200">
+                    <div class="mb-4">
+                        <h3 class="text-lg font-bold text-brand-navy">Value Generation Over Time</h3>
+                        <p class="text-sm text-gray-600">Visualizing the difference between late-stage engagement vs. embedded partnership.</p>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="paradigmChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- From/To Text List -->
+                <div class="space-y-6">
+                    <div class="flex items-center p-4 bg-gray-50 rounded-lg border-l-4 border-gray-300 hover:bg-brand-light transition">
+                        <div class="flex-shrink-0 mr-4">
+                            <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-500">
+                                <i class="fa-solid fa-xmark"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="text-sm font-semibold text-gray-500 uppercase">From (The Old Way)</p>
+                            <p class="text-lg font-medium text-gray-700">Outsiders & Corporate Checklist Enforcers</p>
+                        </div>
+                    </div>
+                    <div class="flex justify-center text-brand-cyan text-2xl">
+                        <i class="fa-solid fa-arrow-down"></i>
+                    </div>
+                    <div class="flex items-center p-4 bg-blue-50 rounded-lg border-l-4 border-brand-cyan shadow-md transition transform hover:scale-105">
+                        <div class="flex-shrink-0 mr-4">
+                            <div class="w-10 h-10 rounded-full bg-brand-cyan flex items-center justify-center text-white">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="text-sm font-semibold text-brand-cyan uppercase">To (One DSS)</p>
+                            <p class="text-lg font-bold text-brand-navy">Embedded Wayfinders & Sense-Makers</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Three Pillars Section (Radar Chart Context) -->
+    <section id="pillars" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-base text-brand-cyan font-semibold tracking-wide uppercase">Our Capabilities</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-brand-navy sm:text-4xl">
+                    The Three Pillars of Value
+                </p>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 mx-auto">
+                    We deploy a mix of planning, service design, and analytics to solve complex problems.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+                <!-- Pillar 1 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border-t-4 border-brand-navy">
+                    <div class="p-6">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-md bg-brand-navy text-white mb-4">
+                            <i class="fa-solid fa-chess-knight text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">01. Strategic Planning & Governance</h3>
+                        <p class="text-gray-600 mb-4">Defining direction. We align business planning, policy, and budget to ensure resources flow where they create impact.</p>
+                        <ul class="text-sm text-gray-500 space-y-2">
+                            <li><i class="fa-solid fa-chevron-right text-brand-gold mr-2"></i>Business Planning</li>
+                            <li><i class="fa-solid fa-chevron-right text-brand-gold mr-2"></i>Policy Development</li>
+                            <li><i class="fa-solid fa-chevron-right text-brand-gold mr-2"></i>Budget Alignment</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Pillar 2 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border-t-4 border-brand-gold">
+                    <div class="p-6">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-md bg-brand-gold text-white mb-4">
+                            <i class="fa-solid fa-users-gear text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">02. Service Improvement & Advisory</h3>
+                        <p class="text-gray-600 mb-4">Redesigning reality. We provide objective service reviews, mitigate risks, and engineer practical solutions.</p>
+                        <ul class="text-sm text-gray-500 space-y-2">
+                            <li><i class="fa-solid fa-chevron-right text-brand-cyan mr-2"></i>Service Reviews</li>
+                            <li><i class="fa-solid fa-chevron-right text-brand-cyan mr-2"></i>Risk Management</li>
+                            <li><i class="fa-solid fa-chevron-right text-brand-cyan mr-2"></i>Business Advisory</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Pillar 3 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border-t-4 border-brand-cyan">
+                    <div class="p-6">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-md bg-brand-cyan text-white mb-4">
+                            <i class="fa-solid fa-chart-line text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">03. Performance & Advanced Analytics</h3>
+                        <p class="text-gray-600 mb-4">Illuminating the dark. We turn raw data into actionable insights and executive dashboards that prove ROI.</p>
+                        <ul class="text-sm text-gray-500 space-y-2">
+                            <li><i class="fa-solid fa-chevron-right text-brand-navy mr-2"></i>Advanced Analytics</li>
+                            <li><i class="fa-solid fa-chevron-right text-brand-navy mr-2"></i>KPI Frameworks</li>
+                            <li><i class="fa-solid fa-chevron-right text-brand-navy mr-2"></i>Reporting</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Radar Chart Section -->
+            <div class="bg-white p-8 rounded-xl shadow-md border border-gray-200">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+                    <div class="md:col-span-1">
+                        <h3 class="text-2xl font-bold text-brand-navy mb-4">Integrated Capability</h3>
+                        <p class="text-gray-600">
+                            Previously, skills were isolated. The "One DSS" model ensures that a strategic problem is met with a holistic team. We balance high-level governance with deep analytical rigour.
+                        </p>
+                    </div>
+                    <div class="md:col-span-2 flex justify-center">
+                        <div class="chart-container">
+                            <canvas id="capabilitiesChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu of Impact: Interactive Problem/Solution Matrix -->
+    <section id="menu-of-impact" class="py-16 bg-brand-navy text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10">
+                <h2 class="text-brand-gold font-semibold tracking-wide uppercase text-sm">Interactive Guide for Branch Managers</h2>
+                <h2 class="text-3xl font-extrabold sm:text-4xl mt-2">The Menu of Impact</h2>
+                <p class="mt-4 text-xl text-gray-300 max-w-3xl mx-auto">
+                    Identify your current pain point to see exactly how we deploy to solve it.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                <!-- Selector Panel -->
+                <div class="lg:col-span-5 space-y-4">
+                    <h3 class="text-lg font-medium text-brand-cyan mb-4">Select your challenge:</h3>
+                    
+                    <div class="space-y-2" id="impact-buttons">
+                        <!-- Buttons will be injected here via JS -->
+                    </div>
+                </div>
+
+                <!-- Display Panel -->
+                <div class="lg:col-span-7">
+                    <div class="bg-white rounded-xl shadow-2xl p-8 h-full text-gray-800 relative transition-all duration-300" id="impact-display">
+                        <div class="absolute top-0 right-0 p-4 opacity-10">
+                            <i class="fa-solid fa-lightbulb text-9xl text-brand-navy"></i>
+                        </div>
+                        
+                        <div id="impact-content" class="relative z-10">
+                            <h4 class="text-sm uppercase tracking-wide text-gray-500 font-semibold mb-2">The Solution</h4>
+                            <h3 class="text-3xl font-bold text-brand-navy mb-4" id="solution-title">Select a challenge...</h3>
+                            
+                            <div class="my-6 border-l-4 border-brand-gold pl-4">
+                                <p class="text-lg italic text-gray-600" id="problem-desc">
+                                    "As a Branch Manager, your mandate is massive. Use the buttons on the left to navigate our service offerings based on the problems keeping you up at night."
+                                </p>
+                            </div>
+
+                            <div class="bg-brand-light p-5 rounded-lg border border-gray-200 mt-6">
+                                <h4 class="text-brand-cyan font-bold uppercase text-xs mb-2">The Deliverable & Impact</h4>
+                                <p class="text-gray-800 font-medium text-lg" id="deliverable-text">
+                                    --
+                                </p>
+                            </div>
+
+                            <div class="mt-6 flex items-center space-x-2">
+                                <span class="px-3 py-1 rounded-full text-xs font-bold bg-gray-200 text-gray-600" id="pillar-tag">Pillar</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Strategic Triage (Gemini Integration) -->
+    <section id="ai-triage" class="py-16 bg-brand-light border-y border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10">
+                <h2 class="text-brand-cyan font-semibold tracking-wide uppercase text-sm"><i class="fa-solid fa-sparkles text-brand-gold mr-1"></i> Powered by Gemini AI</h2>
+                <h2 class="text-3xl font-extrabold sm:text-4xl mt-2 text-brand-navy">Interactive Challenge Scoper</h2>
+                <p class="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">
+                    Have a problem that doesn't fit neatly into a box? Describe your messy challenge below. Our AI strategist will analyze it, map it to our pillars, and suggest a path forward.
+                </p>
+            </div>
+
+            <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
+                <div class="p-8 border-b border-gray-100">
+                    <label for="ai-challenge-input" class="block text-sm font-medium text-gray-700 mb-2">Describe your operational or strategic challenge:</label>
+                    <textarea id="ai-challenge-input" rows="4" class="shadow-sm block w-full focus:ring-brand-cyan focus:border-brand-cyan sm:text-lg border border-gray-300 rounded-md p-4" placeholder="e.g., We are rolling out a new transit route system, but public feedback is hostile, our budget is frozen, and I have no idea if our current metrics will even capture the success of the launch..."></textarea>
+                    
+                    <div class="mt-4 flex justify-end">
+                        <button onclick="analyzeWithGemini()" id="ai-submit-btn" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-brand-navy bg-brand-gold hover:bg-yellow-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-gold transition-colors">
+                            ✨ Analyze Challenge
+                        </button>
+                    </div>
+                </div>
+
+                <!-- AI Results Area -->
+                <div id="ai-results-area" class="p-8 bg-gray-50 hidden">
+                    <div id="ai-loading" class="text-center py-8 hidden">
+                        <i class="fa-solid fa-circle-notch fa-spin text-4xl text-brand-cyan mb-4"></i>
+                        <p class="text-gray-600 font-medium animate-pulse">Consulting the AI Strategist...</p>
+                    </div>
+                    
+                    <div id="ai-error" class="hidden rounded-md bg-red-50 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0"><i class="fa-solid fa-xmark-circle text-red-400"></i></div>
+                            <div class="ml-3"><p class="text-sm font-medium text-red-800" id="ai-error-text">An error occurred.</p></div>
+                        </div>
+                    </div>
+
+                    <div id="ai-output" class="hidden space-y-6">
+                        <div>
+                            <span id="ai-pillar-badge" class="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Pillar</span>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-sm uppercase tracking-wide text-gray-500 font-semibold mb-2">Strategic Assessment</h4>
+                            <p id="ai-assessment" class="text-lg text-brand-navy font-medium leading-relaxed"></p>
+                        </div>
+
+                        <div class="bg-white p-5 rounded-lg border border-gray-200 shadow-sm border-l-4 border-l-brand-cyan">
+                            <h4 class="text-brand-cyan font-bold uppercase text-xs mb-2">Proposed Deliverable</h4>
+                            <p id="ai-deliverable" class="text-gray-800 font-medium"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How We Work: Leadership Triage -->
+    <section id="process" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-base text-brand-cyan font-semibold tracking-wide uppercase">Engagement Model</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-brand-navy sm:text-4xl">
+                    Leadership Triage
+                </p>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 mx-auto">
+                    Forget navigating internal silos. Bring us the mess, we do the rest.
+                </p>
+            </div>
+
+            <div class="relative">
+                <!-- Connector Line for Desktop -->
+                <div class="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-gray-200 -translate-y-1/2 z-0"></div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
+                    <!-- Step 1 -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg border border-gray-100 text-center transform hover:-translate-y-2 transition duration-300">
+                        <div class="w-16 h-16 mx-auto bg-brand-navy rounded-full flex items-center justify-center text-white text-2xl mb-4 shadow-md border-4 border-white">
+                            1
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">The Messy Problem</h3>
+                        <p class="text-gray-600">You identify a complex challenge at the onset—budget misalignment, service friction, or a blind spot.</p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg border border-gray-100 text-center transform hover:-translate-y-2 transition duration-300">
+                        <div class="w-16 h-16 mx-auto bg-brand-gold rounded-full flex items-center justify-center text-white text-2xl mb-4 shadow-md border-4 border-white">
+                            2
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Central Scoping</h3>
+                        <p class="text-gray-600">Our leadership triages the request through central intake. We frame the strategy and define the required approach.</p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg border border-gray-100 text-center transform hover:-translate-y-2 transition duration-300">
+                        <div class="w-16 h-16 mx-auto bg-brand-cyan rounded-full flex items-center justify-center text-white text-2xl mb-4 shadow-md border-4 border-white">
+                            3
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Deployed Expertise</h3>
+                        <p class="text-gray-600">We assign a custom, cross-functional team focused entirely on practical, actionable outcomes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proof of Impact -->
+    <section class="py-16 bg-gray-50 border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-extrabold text-brand-navy mb-8 text-center">Our Impact in Action</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Case Study 1 -->
+                <div class="bg-white p-8 rounded-xl shadow-md border-l-4 border-brand-gold">
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0">
+                            <i class="fa-solid fa-file-invoice-dollar text-3xl text-brand-gold"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-xl font-bold text-gray-900">EFRS Cost of Service Study</h3>
+                            <p class="mt-2 text-gray-600">
+                                Delivered robust, defensible financial and operational analysis to secure critical resourcing decisions. Proved the value of deep analytics over surface-level reporting.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Case Study 2 -->
+                <div class="bg-white p-8 rounded-xl shadow-md border-l-4 border-brand-cyan">
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0">
+                            <i class="fa-solid fa-layer-group text-3xl text-brand-cyan"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-xl font-bold text-gray-900">Integrated Strategic Frameworks</h3>
+                            <p class="mt-2 text-gray-600">
+                                Transformed executive quarterly conversations. Instead of disjointed updates, we now tie risk, budget, and performance metrics into one cohesive, strategic narrative.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-navy text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold mb-4 text-brand-gold">Let's Map The Way Forward.</h2>
+            <p class="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">Your strategic advantage is already in-house. Engage One DSS today.</p>
+            <div class="flex justify-center space-x-6">
+                <a href="#" class="text-gray-300 hover:text-white transition">
+                    <span class="sr-only">Email</span>
+                    <i class="fa-solid fa-envelope fa-2x"></i>
+                </a>
+                <a href="#" class="text-gray-300 hover:text-white transition">
+                    <span class="sr-only">Intranet</span>
+                    <i class="fa-solid fa-globe fa-2x"></i>
+                </a>
+            </div>
+            <p class="mt-8 text-sm text-gray-400">&copy; 2024 City of Edmonton - Department Strategy (DSS).</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // --- DATA STORE ---
+        const impactData = [
+            {
+                id: 1,
+                pillar: "Strategic Planning",
+                problem: "We have a new mandate from Council, but our budget, policy, and operations aren't aligned to deliver it.",
+                solution: "Strategic Alignment & Business Planning",
+                deliverable: "A cohesive Business Plan that seamlessly connects your operational realities with budget requests and corporate strategy."
+            },
+            {
+                id: 2,
+                pillar: "Strategic Planning",
+                problem: "Our quarterly executive reviews feel disjointed; we're talking about budget, risk, and strategy in separate silos.",
+                solution: "Integrated Strategic Frameworks",
+                deliverable: "A unified reporting framework that ties risk, budget, and measures into a single, compelling story for executive conversations."
+            },
+            {
+                id: 3,
+                pillar: "Strategic Planning",
+                problem: "We need to update a core policy, but it’s tangled in historical red tape and competing stakeholder interests.",
+                solution: "Policy Design & Governance Support",
+                deliverable: "Clear, modern, and enforceable policy frameworks that reduce bureaucratic friction and enable service delivery."
+            },
+            {
+                id: 4,
+                pillar: "Service Improvement",
+                problem: "A critical service is underperforming or costing too much, and we need an objective look at why.",
+                solution: "End-to-End Service Reviews",
+                deliverable: "A comprehensive diagnostic of service friction points, backed by a practical, prioritized roadmap for enhancement."
+            },
+            {
+                id: 5,
+                pillar: "Service Improvement",
+                problem: "We are launching a new initiative, but there are massive blind spots and potential operational liabilities.",
+                solution: "Strategic Risk Management",
+                deliverable: "Proactive risk identification matrices and mitigation strategies to protect the branch before launch."
+            },
+            {
+                id: 6,
+                pillar: "Service Improvement",
+                problem: "My leadership team is stuck in the weeds and we need objective, high-level guidance to break a deadlock.",
+                solution: "Business Advisory Services",
+                deliverable: "Expert, unbiased facilitation and strategic consulting to drive consensus and actionable decision-making."
+            },
+            {
+                id: 7,
+                pillar: "Analytics & Performance",
+                problem: "We have mountains of data, but I can't easily tell if we are actually winning or losing.",
+                solution: "Measurement & Tracking Frameworks",
+                deliverable: "Customized KPIs and metrics that track outcomes, not just outputs, giving you a clear picture of success."
+            },
+            {
+                id: 8,
+                pillar: "Analytics & Performance",
+                problem: "I need to prove the ROI of our branch to the Deputy Head, but I don't have the hard numbers.",
+                solution: "Advanced Analytics & Reporting",
+                deliverable: "Deep-dive analytical reports (like the EFRS Cost of Service Study) that provide bulletproof quantitative evidence."
+            },
+            {
+                id: 9,
+                pillar: "Analytics & Performance",
+                problem: "We are relying on gut-feeling to predict future service demand.",
+                solution: "Predictive Modeling",
+                deliverable: "Data-driven foresight that allows you to shift from reactive firefighting to proactive resource allocation."
+            }
+        ];
+
+        // --- DOM ELEMENTS ---
+        const buttonsContainer = document.getElementById('impact-buttons');
+        const displayTitle = document.getElementById('solution-title');
+        const displayProblem = document.getElementById('problem-desc');
+        const displayDeliverable = document.getElementById('deliverable-text');
+        const displayPillar = document.getElementById('pillar-tag');
+
+        // Gemini API Configuration
+        const apiKey = ""; 
+
+        // --- INITIALIZATION ---
+        document.addEventListener('DOMContentLoaded', () => {
+            initCharts();
+            initImpactMenu();
+        });
+
+        // --- CHARTS ---
+        function initCharts() {
+            // Chart 1: The Paradigm Shift (Line Chart)
+            const ctxShift = document.getElementById('paradigmChart').getContext('2d');
+            new Chart(ctxShift, {
+                type: 'line',
+                data: {
+                    labels: ['Project Start', 'Planning', 'Execution', 'Review', 'Completion'],
+                    datasets: [
+                        {
+                            label: 'The Old Way (Checklist)',
+                            data: [10, 20, 20, 30, 90], // Value spikes at end (compliance)
+                            borderColor: '#94a3b8', // Gray
+                            backgroundColor: 'rgba(148, 163, 184, 0.1)',
+                            borderDash: [5, 5],
+                            tension: 0.4,
+                            fill: true
+                        },
+                        {
+                            label: 'One DSS (Strategic Partner)',
+                            data: [90, 85, 80, 85, 95], // High value throughout
+                            borderColor: '#00A4B4', // Cyan
+                            backgroundColor: 'rgba(0, 164, 180, 0.1)',
+                            borderWidth: 3,
+                            tension: 0.4,
+                            fill: true
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'top' },
+                        tooltip: { 
+                            callbacks: {
+                                label: function(context) {
+                                    return context.dataset.label + ': ' + (context.raw > 50 ? 'High Strategic Value' : 'Low Strategic Value');
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100,
+                            ticks: { display: false },
+                            grid: { display: false },
+                            title: { display: true, text: 'Strategic Value / Insight' }
+                        },
+                        x: {
+                            grid: { display: false }
+                        }
+                    }
+                }
+            });
+
+            // Chart 2: Capabilities (Radar Chart)
+            const ctxCap = document.getElementById('capabilitiesChart').getContext('2d');
+            new Chart(ctxCap, {
+                type: 'radar',
+                data: {
+                    labels: ['Governance', 'Policy', 'Service Design', 'Risk Mgmt', 'Analytics', 'ROI Tracking'],
+                    datasets: [
+                        {
+                            label: 'Siloed Teams (Old)',
+                            data: [70, 60, 40, 30, 80, 40],
+                            borderColor: '#94a3b8',
+                            backgroundColor: 'rgba(148, 163, 184, 0.2)',
+                            pointBackgroundColor: '#94a3b8'
+                        },
+                        {
+                            label: 'One DSS (Integrated)',
+                            data: [90, 85, 90, 85, 95, 90],
+                            borderColor: '#D4AF37', // Gold
+                            backgroundColor: 'rgba(212, 175, 55, 0.2)',
+                            pointBackgroundColor: '#D4AF37',
+                            borderWidth: 2
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            angleLines: { color: '#e2e8f0' },
+                            grid: { color: '#e2e8f0' },
+                            pointLabels: {
+                                font: { size: 12, weight: 'bold' },
+                                color: '#0B1F3F'
+                            },
+                            ticks: { display: false }
+                        }
+                    },
+                    plugins: {
+                        legend: { position: 'bottom' }
+                    }
+                }
+            });
+        }
+
+        // --- INTERACTIVE MENU LOGIC ---
+        function initImpactMenu() {
+            // Render Buttons
+            impactData.forEach((item, index) => {
+                const btn = document.createElement('button');
+                btn.className = `w-full text-left p-4 rounded-lg border transition-all duration-200 hover:bg-opacity-20 text-sm font-medium flex justify-between items-center group
+                    ${index === 0 ? 'bg-brand-cyan text-brand-navy border-brand-cyan' : 'bg-transparent border-gray-600 text-gray-300 hover:bg-brand-gold hover:text-white hover:border-brand-gold'}`;
+                
+                // Truncate problem text for button title
+                const shortTitle = item.problem.length > 60 ? item.problem.substring(0, 60) + '...' : item.problem;
+                
+                btn.innerHTML = `
+                    <span>"${shortTitle}"</span>
+                    <i class="fa-solid fa-chevron-right opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                `;
+                
+                btn.onclick = () => activateMenuOption(index, btn);
+                buttonsContainer.appendChild(btn);
+            });
+
+            // Activate first option by default
+            activateMenuOption(0, buttonsContainer.children[0]);
+        }
+
+        function activateMenuOption(index, clickedBtn) {
+            // Reset all buttons
+            Array.from(buttonsContainer.children).forEach(btn => {
+                btn.className = 'w-full text-left p-4 rounded-lg border border-gray-600 text-gray-300 bg-transparent transition-all duration-200 hover:bg-brand-gold hover:bg-opacity-20 hover:text-white hover:border-brand-gold text-sm font-medium flex justify-between items-center group';
+            });
+
+            // Highlight active button
+            clickedBtn.className = 'w-full text-left p-4 rounded-lg border bg-brand-cyan text-brand-navy border-brand-cyan shadow-lg transition-all duration-200 text-sm font-bold flex justify-between items-center';
+
+            // Update Content with animation
+            const displayPanel = document.getElementById('impact-display');
+            displayPanel.classList.remove('opacity-100');
+            displayPanel.classList.add('opacity-50');
+
+            setTimeout(() => {
+                const data = impactData[index];
+                displayTitle.textContent = data.solution;
+                displayProblem.textContent = `"${data.problem}"`;
+                displayDeliverable.textContent = data.deliverable;
+                displayPillar.textContent = data.pillar.toUpperCase();
+                
+                // Set pillar tag color based on category
+                if(data.pillar.includes('Strategic')) {
+                    displayPillar.className = "px-3 py-1 rounded-full text-xs font-bold bg-brand-navy text-white";
+                } else if (data.pillar.includes('Service')) {
+                    displayPillar.className = "px-3 py-1 rounded-full text-xs font-bold bg-brand-gold text-brand-navy";
+                } else {
+                    displayPillar.className = "px-3 py-1 rounded-full text-xs font-bold bg-brand-cyan text-white";
+                }
+
+                displayPanel.classList.remove('opacity-50');
+                displayPanel.classList.add('opacity-100');
+            }, 200);
+        }
+
+        // --- GEMINI API INTEGRATION ---
+        async function fetchWithRetry(url, options, retries = 5) {
+            const delays = [1000, 2000, 4000, 8000, 16000];
+            for (let i = 0; i < retries; i++) {
+                try {
+                    const response = await fetch(url, options);
+                    if (!response.ok) {
+                        const errorData = await response.json();
+                        throw new Error(`API Error: ${errorData.error?.message || response.status}`);
+                    }
+                    return await response.json();
+                } catch (error) {
+                    if (i === retries - 1) throw error;
+                    console.warn(`Attempt ${i + 1} failed, retrying in ${delays[i]}ms...`);
+                    await new Promise(res => setTimeout(res, delays[i]));
+                }
+            }
+        }
+
+        async function analyzeWithGemini() {
+            const inputEl = document.getElementById('ai-challenge-input');
+            const submitBtn = document.getElementById('ai-submit-btn');
+            const resultsArea = document.getElementById('ai-results-area');
+            const loadingIndicator = document.getElementById('ai-loading');
+            const outputArea = document.getElementById('ai-output');
+            const errorArea = document.getElementById('ai-error');
+            
+            const challengeText = inputEl.value.trim();
+
+            if (!challengeText) {
+                alert("Please describe your challenge first.");
+                return;
+            }
+
+            // Update UI for loading state
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-2"></i> Analyzing...';
+            resultsArea.classList.remove('hidden');
+            outputArea.classList.add('hidden');
+            errorArea.classList.add('hidden');
+            loadingIndicator.classList.remove('hidden');
+
+            const systemInstruction = `You are an expert municipal strategist and management consultant working for 'One DSS'. 
+            Your job is to read a user's operational/strategic challenge and map it to exactly ONE of our three pillars: 
+            1. 'Strategic Planning & Governance', 2. 'Service Improvement & Advisory', or 3. 'Performance & Advanced Analytics'.
+            Provide a brief strategic assessment (2-3 sentences max) explaining the core issue.
+            Provide a concrete, actionable deliverable that the One DSS team would produce to solve this.`;
+
+            const payload = {
+                contents: [{ parts: [{ text: challengeText }] }],
+                systemInstruction: { parts: [{ text: systemInstruction }] },
+                generationConfig: {
+                    responseMimeType: "application/json",
+                    responseSchema: {
+                        type: "OBJECT",
+                        properties: {
+                            pillar: { 
+                                type: "STRING", 
+                                enum: ["Strategic Planning & Governance", "Service Improvement & Advisory", "Performance & Advanced Analytics"] 
+                            },
+                            assessment: { type: "STRING" },
+                            deliverable: { type: "STRING" }
+                        },
+                        required: ["pillar", "assessment", "deliverable"]
+                    }
+                }
+            };
+
+            try {
+                const response = await fetchWithRetry(
+                    `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`,
+                    {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    }
+                );
+
+                const rawText = response.candidates?.[0]?.content?.parts?.[0]?.text;
+                if (!rawText) throw new Error("No response generated by the AI.");
+                
+                const resultData = JSON.parse(rawText);
+
+                // Populate UI with results
+                document.getElementById('ai-assessment').innerText = resultData.assessment;
+                document.getElementById('ai-deliverable').innerText = resultData.deliverable;
+                
+                const badge = document.getElementById('ai-pillar-badge');
+                badge.innerText = resultData.pillar;
+                
+                // Style badge based on pillar
+                if (resultData.pillar.includes('Planning')) {
+                    badge.className = "px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-brand-navy text-white";
+                } else if (resultData.pillar.includes('Improvement')) {
+                    badge.className = "px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-brand-gold text-brand-navy";
+                } else {
+                    badge.className = "px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-brand-cyan text-white";
+                }
+
+                loadingIndicator.classList.add('hidden');
+                outputArea.classList.remove('hidden');
+
+            } catch (error) {
+                console.error("Gemini API Error:", error);
+                loadingIndicator.classList.add('hidden');
+                errorArea.classList.remove('hidden');
+                document.getElementById('ai-error-text').innerText = "Failed to analyze challenge. Please check your connection or API key and try again.";
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '✨ Analyze Challenge';
+            }
+        }
+    </script>
+</body>
+</html>
