@@ -73,6 +73,12 @@
         .carousel-slide {
             transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
         }
+
+        /* Visual Indicator for Placeholders in Prototype */
+        .placeholder-text {
+            color: #94a3b8; /* Tailwind slate-400 */
+            font-style: italic;
+        }
     </style>
 </head>
 <body class="antialiased text-brand-slate font-sans selection:bg-brand-cyan selection:text-white">
@@ -437,51 +443,55 @@
 
     <!-- INTERACTIVITY LOGIC -->
     <script>
-        // --- 1. MATRIX TAB LOGIC ---
+        // --- 1. MATRIX TAB LOGIC (PROTOTYPE DATA) ---
         const matrixData = [
-            // --- FOUNDATIONAL PILLARS ---
+            // --- Example Retained for Context ---
             {
                 badges: [{ text: "Strategic Planning", colorClass: "bg-brand-navy text-white" }],
                 icon: "fa-chess-knight",
-                problem: "A new leadership mandate or audit finding has misaligned our budget and delivery.",
+                problem: "Example: A new leadership mandate has misaligned our budget and delivery.",
                 solution: "Strategic Alignment & Business Planning",
                 deliverable: "A cohesive Business Plan connecting operational realities with new corporate directives."
             },
+            
+            // --- Placeholder Single Pillars ---
             {
                 badges: [{ text: "Service Improvement", colorClass: "bg-brand-gold text-brand-navy" }],
                 icon: "fa-magnifying-glass-chart",
-                problem: "A critical internal service is messy, and our leadership team is deadlocked on how to fix it.",
-                solution: "Service Review & Business Advisory",
-                deliverable: "A comprehensive diagnostic of pain points paired with objective facilitation to drive consensus."
+                problem: "[Insert Client Problem related to Service Friction or Redesign]",
+                solution: "[Insert Specific DSS Solution Name]",
+                deliverable: "[Describe the specific diagnostic or roadmap deliverable the client receives.]"
             },
             {
                 badges: [{ text: "Performance Analytics", colorClass: "bg-brand-cyan text-white" }],
                 icon: "fa-chart-pie",
-                problem: "We have mountains of data but struggle to prove our branch's corporate ROI.",
-                solution: "Advanced Analytics & Tracking Frameworks",
-                deliverable: "Customized KPIs and deep-dive reports providing unassailable evidence of your success."
+                problem: "[Insert Client Problem related to Data, ROI, or Measurement]",
+                solution: "[Insert Specific DSS Solution Name]",
+                deliverable: "[Describe the dashboards, KPIs, or reports the client receives.]"
             },
             
-            // --- INTEGRATED SOLUTIONS (The "One DSS" Difference) ---
+            // --- Example Integrated Solution Retained ---
             {
                 badges: [
                     { text: "Strategic Planning", colorClass: "bg-brand-navy text-white" },
                     { text: "Service Improvement", colorClass: "bg-brand-gold text-brand-navy" }
                 ],
                 icon: "fa-scale-balanced",
-                problem: "We are launching a new delivery model and need to update red-tape policy while navigating operational trade-offs.",
+                problem: "Example: We are launching a new model and need to update policy while navigating trade-offs.",
                 solution: "Integrated Policy & Risk Strategy",
-                deliverable: "Modern, enforceable policy frameworks combined with proactive risk mitigation strategies for a safe launch."
+                deliverable: "Modern policy frameworks combined with proactive risk mitigation strategies."
             },
+
+            // --- Placeholder Integrated Solutions ---
             {
                 badges: [
                     { text: "Service Improvement", colorClass: "bg-brand-gold text-brand-navy" },
                     { text: "Performance Analytics", colorClass: "bg-brand-cyan text-white" }
                 ],
                 icon: "fa-lightbulb",
-                problem: "Our teams are constantly firefighting; we need to shift from gut-feeling to data-driven service delivery.",
-                solution: "Predictive Service Optimization",
-                deliverable: "Data-driven foresight paired with a prioritized service roadmap to proactively allocate resources."
+                problem: "[Insert Complex Multi-Faceted Client Problem]",
+                solution: "[Insert Integrated Solution Name]",
+                deliverable: "[Describe the combined deliverable that solves this complex issue.]"
             },
             {
                 badges: [
@@ -490,9 +500,9 @@
                     { text: "Performance Analytics", colorClass: "bg-brand-cyan text-white" }
                 ],
                 icon: "fa-network-wired",
-                problem: "We are undertaking a major transformation. We need to defend the budget, redesign the operation, and prove it works.",
-                solution: "End-to-End Strategic Partnering",
-                deliverable: "A unified package: Business case alignment, operational risk mapping, and a customized KPI tracking framework."
+                problem: "[Insert Massive Transformation Scenario requiring all three pillars]",
+                solution: "[Insert End-to-End Solution Name]",
+                deliverable: "[Describe the comprehensive, full-service deliverable package.]"
             }
         ];
 
@@ -506,6 +516,10 @@
         function renderTabs() {
             matrixData.forEach((item, index) => {
                 const btn = document.createElement('button');
+                // Apply a placeholder style to the text if it contains brackets
+                const isPlaceholder = item.problem.includes('[');
+                const textStyle = isPlaceholder ? 'text-slate-400 italic' : 'text-gray-700 italic';
+                
                 btn.className = `w-full text-left p-5 transition-colors duration-200 border-l-4 group flex items-start gap-4 ${index === 0 ? 'bg-white border-brand-cyan shadow-sm' : 'bg-transparent border-transparent hover:bg-gray-100'}`;
                 btn.onclick = () => activateTab(index, btn);
                 
@@ -514,7 +528,7 @@
                         <i class="fa-solid fa-quote-left text-sm"></i>
                     </div>
                     <div>
-                        <p class="text-sm font-medium text-gray-700 leading-relaxed italic">"${item.problem}"</p>
+                        <p class="text-sm font-medium leading-relaxed ${textStyle}">"${item.problem}"</p>
                     </div>
                 `;
                 tabContainer.appendChild(btn);
@@ -558,8 +572,11 @@
             });
             
             badgeContainer.innerHTML = badgesHtml;
-            title.innerText = data.solution;
-            deliverable.innerText = data.deliverable;
+            
+            // Apply placeholder styling to panel if needed
+            title.innerHTML = data.solution.includes('[') ? `<span class="placeholder-text">${data.solution}</span>` : data.solution;
+            deliverable.innerHTML = data.deliverable.includes('[') ? `<span class="placeholder-text">${data.deliverable}</span>` : data.deliverable;
+            
             panelIcon.className = `fa-solid ${data.icon} text-9xl text-gray-100 transition-all`;
         }
 
