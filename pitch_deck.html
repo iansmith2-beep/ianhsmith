@@ -4,11 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>One DSS | Leadership Pitch Deck</title>
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
     <script>
@@ -23,9 +20,6 @@
                             slate: '#334155',
                             light: '#F8FAFC'
                         }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
                     }
                 }
             }
@@ -34,13 +28,34 @@
     <style>
         body {
             background-color: #e2e8f0; /* Darker backdrop to make slides pop */
-            padding: 2rem 1rem;
+            padding: 0; /* Adjusted so the nav bar sits perfectly flush at the top */
+            margin: 0;
         }
-        /* Digital Slide Canvas - Forces a 16:9 widescreen ratio for presentation feel */
+        
+        /* Global Navigation Bar at the very top of the page */
+        .global-nav {
+            background-color: #0B1F3F;
+            padding: 1rem 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (min-width: 768px) {
+            .global-nav {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+        }
+
+        /* Digital Slide Canvas */
         .slide-canvas {
             width: 100%;
             max-width: 1100px;
-            aspect-ratio: 16 / 9;
+            /* FIX: Removed 'aspect-ratio: 16 / 9;' so slide text won't get chopped off */
             margin: 0 auto 4rem auto;
             background-color: white;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
@@ -50,12 +65,7 @@
             flex-direction: column;
             position: relative;
         }
-        @media (max-width: 1024px) {
-            .slide-canvas {
-                aspect-ratio: auto;
-                min-height: 600px;
-            }
-        }
+        
         /* Subtle grid pattern for textured backgrounds */
         .bg-pattern {
             background-image: radial-gradient(#00A4B4 1px, transparent 1px);
@@ -64,6 +74,37 @@
         }
     </style>
 </head>
+<body class="antialiased text-brand-slate font-sans selection:bg-brand-cyan selection:text-white">
+    
+    <div class="global-nav">
+        <h2 class="text-brand-gold font-bold tracking-widest uppercase text-sm flex items-center">
+            <i class="fa-solid fa-compass mr-2 text-lg"></i> Department Strategy (DSS)
+        </h2>
+        
+        <nav class="flex gap-2">
+            <a href="index.html" class="px-4 py-1.5 border border-white/20 rounded bg-white/5 text-white text-sm font-bold hover:bg-white hover:text-brand-navy transition-all duration-300">
+                <i class="fa-solid fa-house mr-1"></i> Home
+            </a>
+            
+            <a href="executive_wayfinder.html" class="px-4 py-1.5 border border-white/20 rounded bg-white/5 text-white text-sm font-bold hover:bg-brand-cyan hover:border-brand-cyan transition-all duration-300">
+                1
+            </a>
+            
+            <a href="menu_of_impact.html" class="px-4 py-1.5 border border-white/20 rounded bg-white/5 text-white text-sm font-bold hover:bg-brand-gold hover:border-brand-gold transition-all duration-300">
+                2
+            </a>
+            
+            <a href="pitch_deck.html" class="px-4 py-1.5 bg-brand-cyan rounded text-white text-sm font-bold shadow-md cursor-default">
+                3
+            </a>
+        </nav>
+    </div>
+
+    ```
+
+Just commit those changes, wait a minute for the build, and hit your page with a hard refresh. You will now have a beautiful, uniform navigation system across all of your pages! 
+
+Would you like me to help double-check that your `index.html` file links are all working properly next, or is there another piece of content you'd like to adjust?
 <body class="antialiased text-brand-slate font-sans selection:bg-brand-cyan selection:text-white">
 
     <div class="max-w-7xl mx-auto mb-12 text-center">
