@@ -853,5 +853,59 @@
             }
         }
     </script>
+    <style>
+  .output-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin: 40px auto;
+    flex-wrap: wrap;
+    font-family: sans-serif;
+  }
+  .output-box {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 24px;
+    width: 280px;
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .output-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    border-color: #007bff;
+  }
+  .output-box h3 {
+    margin-top: 0;
+    color: #007bff;
+    font-size: 1.2rem;
+  }
+  .output-box p {
+    font-size: 1rem;
+    line-height: 1.4;
+    margin-bottom: 0;
+  }
+</style>
+
+<div class="output-container">
+  <a href="wayfinder.html" class="output-box">
+    <h3>Output 1</h3>
+    <p>The "Executive Wayfinder" Placemat</p>
+  </a>
+
+  <a href="menu.html" class="output-box">
+    <h3>Output 2</h3>
+    <p>The "Menu of Impact" Problem/Solution Matrix</p>
+  </a>
+
+  <a href="pitch-deck.html" class="output-box">
+    <h3>Output 3</h3>
+    <p>The "One DSS" Leadership Pitch Deck</p>
+  </a>
+</div>
 </body>
 </html>
