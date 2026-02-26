@@ -9,7 +9,7 @@
     <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <script>
         tailwind.config = {
@@ -26,77 +26,34 @@
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
-                        serif: ['Playfair Display', 'serif']
                     }
                 }
             }
         }
     </script>
-    <style>
-        body {
-            background-color: #e2e8f0; /* Darker background to make the "page" pop */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 2rem;
-        }
-        
-        .placemat-container {
-            width: 100%;
-            max-width: 1500px;
-            background-color: white;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-            display: flex;
-            flex-direction: column;
-            overflow: hidden; /* Keeps your rounded corners nice and clean */
-            position: relative;
-            /* FIX: Removed 'aspect-ratio: 17 / 10;' so the container can stretch to fit the text */
-        }
-    </style>
-        
-        body {
-            background-color: #e2e8f0; /* Darker background to make the "page" pop */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 2rem;
-        }
-        /* Simulates an 11x17 landscape printed document or 16:9 widescreen slide */
-        .placemat-container {
-            width: 100%;
-            max-width: 1500px;
-            background-color: white;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-            aspect-ratio: 17 / 10; 
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-            position: relative;
-        }
-        @media (max-width: 1200px) {
-            .placemat-container {
-                aspect-ratio: auto;
-                min-height: 1000px;
-            }
-        }
 </head>
-<body class="antialiased text-brand-slate">
+<!-- Removed restrictive flex centering from body to prevent header cutoff -->
+<body class="antialiased text-brand-slate bg-slate-200 p-4 md:p-8 min-h-screen font-sans">
 
-    <!-- Prototype Wrapper -->
-    <div class="placemat-container rounded-xl border border-gray-300">
+    <!-- 
+      Prototype Wrapper: 
+      - max-w-[1500px]: Keeps it wide like a placemat on big screens
+      - mx-auto: Centers it safely horizontally
+      - overflow-hidden: Only clips the rounded corners, does NOT restrict height
+      - h-auto: Allows the document to grow as tall as it needs to be
+    -->
+    <div class="max-w-[1500px] mx-auto w-full bg-white rounded-xl shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] border border-gray-300 overflow-hidden flex flex-col h-auto">
         
         <!-- HEADER SECTION -->
-        <header class="bg-brand-navy p-10 flex justify-between items-center relative overflow-hidden">
-            <!-- Subtle background pattern for premium feel -->
-            <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+        <header class="bg-brand-navy p-8 md:p-12 relative">
+            <!-- Subtle background pattern -->
+            <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] pointer-events-none"></div>
             
             <div class="relative z-10 w-full">
-                <h2 class="text-brand-gold font-bold tracking-widest uppercase text-sm mb-2 flex items-center">
+                <h2 class="text-brand-gold font-bold tracking-widest uppercase text-xs md:text-sm mb-3 flex items-center">
                     <i class="fa-solid fa-compass mr-2 text-lg"></i> Department Strategy (DSS)
                 </h2>
-                <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight">
                     ONE DSS: SENSE-MAKERS. 
                     <span class="text-brand-cyan">WAYFINDERS.</span> 
                     STRATEGIC PARTNERS.
@@ -105,58 +62,58 @@
         </header>
 
         <!-- THE HOOK SECTION -->
-        <section class="bg-brand-light p-10 border-b border-gray-200">
-            <p class="text-2xl lg:text-3xl font-light leading-relaxed text-gray-700 max-w-6xl">
+        <section class="bg-brand-light p-8 md:p-12 border-b border-gray-200">
+            <p class="text-xl md:text-2xl lg:text-3xl font-light leading-relaxed text-gray-700 max-w-6xl">
                 Municipal leadership isn’t getting simpler. You are facing constrained budgets, heightened risks, and interconnected service challenges. 
-                <strong class="font-bold text-brand-navy bg-yellow-100 px-2 rounded">Don’t bring us in at the end to check a box. Bring us in at the beginning to clear the path.</strong> 
+                <strong class="font-bold text-brand-navy bg-yellow-100 px-2 rounded box-decoration-clone leading-normal">Don’t bring us in at the end to check a box. Bring us in at the beginning to clear the path.</strong> 
                 We have united into One DSS—a singular, deployable advisory team built to help you make sense of the mess.
             </p>
         </section>
 
         <!-- THE ENGINE (THREE PILLARS) SECTION -->
-        <section class="flex-grow p-10 grid grid-cols-1 md:grid-cols-3 gap-8 bg-white">
+        <section class="grid grid-cols-1 md:grid-cols-3 bg-white divide-y md:divide-y-0 md:divide-x divide-gray-100">
             
             <!-- Pillar 1 -->
-            <div class="flex flex-col border-t-8 border-brand-navy bg-gray-50 p-8 rounded-b-lg shadow-sm relative overflow-hidden group hover:shadow-md transition-shadow">
-                <div class="absolute top-0 right-0 p-6 opacity-5">
-                    <i class="fa-solid fa-chess-knight text-9xl"></i>
+            <div class="flex flex-col border-t-8 border-brand-navy bg-gray-50 p-8 md:p-10 relative overflow-hidden group hover:bg-white transition-colors duration-300 h-full">
+                <div class="absolute top-0 right-0 p-6 opacity-5 pointer-events-none">
+                    <i class="fa-solid fa-chess-knight text-8xl md:text-9xl"></i>
                 </div>
-                <div class="w-14 h-14 bg-brand-navy text-white rounded-lg flex items-center justify-center text-2xl mb-6 relative z-10">
+                <div class="w-12 h-12 md:w-14 md:h-14 bg-brand-navy text-white rounded-lg flex items-center justify-center text-xl md:text-2xl font-bold mb-6 relative z-10 shadow-sm">
                     01
                 </div>
-                <h3 class="text-2xl font-bold text-brand-navy mb-2 relative z-10">Strategic Planning & Governance</h3>
-                <p class="text-brand-gold font-bold uppercase tracking-wide text-sm mb-4 relative z-10">Defining direction.</p>
-                <p class="text-gray-600 text-lg relative z-10">
+                <h3 class="text-xl md:text-2xl font-bold text-brand-navy mb-2 relative z-10">Strategic Planning & Governance</h3>
+                <p class="text-brand-gold font-bold uppercase tracking-wide text-xs md:text-sm mb-4 relative z-10">Defining direction.</p>
+                <p class="text-gray-600 text-base md:text-lg relative z-10 flex-grow">
                     We align business planning, policy, and budget to ensure resources flow exactly where they create the most impact.
                 </p>
             </div>
 
             <!-- Pillar 2 -->
-            <div class="flex flex-col border-t-8 border-brand-gold bg-gray-50 p-8 rounded-b-lg shadow-sm relative overflow-hidden group hover:shadow-md transition-shadow">
-                <div class="absolute top-0 right-0 p-6 opacity-5">
-                    <i class="fa-solid fa-users-gear text-9xl"></i>
+            <div class="flex flex-col border-t-8 border-brand-gold bg-gray-50 p-8 md:p-10 relative overflow-hidden group hover:bg-white transition-colors duration-300 h-full">
+                <div class="absolute top-0 right-0 p-6 opacity-5 pointer-events-none">
+                    <i class="fa-solid fa-users-gear text-8xl md:text-9xl"></i>
                 </div>
-                <div class="w-14 h-14 bg-brand-gold text-brand-navy rounded-lg flex items-center justify-center text-2xl font-bold mb-6 relative z-10">
+                <div class="w-12 h-12 md:w-14 md:h-14 bg-brand-gold text-brand-navy rounded-lg flex items-center justify-center text-xl md:text-2xl font-bold mb-6 relative z-10 shadow-sm">
                     02
                 </div>
-                <h3 class="text-2xl font-bold text-brand-navy mb-2 relative z-10">Service Improvement & Advisory</h3>
-                <p class="text-brand-cyan font-bold uppercase tracking-wide text-sm mb-4 relative z-10">Redesigning reality.</p>
-                <p class="text-gray-600 text-lg relative z-10">
+                <h3 class="text-xl md:text-2xl font-bold text-brand-navy mb-2 relative z-10">Service Improvement & Advisory</h3>
+                <p class="text-brand-cyan font-bold uppercase tracking-wide text-xs md:text-sm mb-4 relative z-10">Redesigning reality.</p>
+                <p class="text-gray-600 text-base md:text-lg relative z-10 flex-grow">
                     We provide objective, end-to-end service reviews, mitigate operational risks, and engineer practical business solutions.
                 </p>
             </div>
 
             <!-- Pillar 3 -->
-            <div class="flex flex-col border-t-8 border-brand-cyan bg-gray-50 p-8 rounded-b-lg shadow-sm relative overflow-hidden group hover:shadow-md transition-shadow">
-                <div class="absolute top-0 right-0 p-6 opacity-5">
-                    <i class="fa-solid fa-chart-line text-9xl"></i>
+            <div class="flex flex-col border-t-8 border-brand-cyan bg-gray-50 p-8 md:p-10 relative overflow-hidden group hover:bg-white transition-colors duration-300 h-full">
+                <div class="absolute top-0 right-0 p-6 opacity-5 pointer-events-none">
+                    <i class="fa-solid fa-chart-line text-8xl md:text-9xl"></i>
                 </div>
-                <div class="w-14 h-14 bg-brand-cyan text-white rounded-lg flex items-center justify-center text-2xl mb-6 relative z-10">
+                <div class="w-12 h-12 md:w-14 md:h-14 bg-brand-cyan text-white rounded-lg flex items-center justify-center text-xl md:text-2xl font-bold mb-6 relative z-10 shadow-sm">
                     03
                 </div>
-                <h3 class="text-2xl font-bold text-brand-navy mb-2 relative z-10">Performance & Advanced Analytics</h3>
-                <p class="text-brand-navy font-bold uppercase tracking-wide text-sm mb-4 relative z-10">Illuminating the dark.</p>
-                <p class="text-gray-600 text-lg relative z-10">
+                <h3 class="text-xl md:text-2xl font-bold text-brand-navy mb-2 relative z-10">Performance & Advanced Analytics</h3>
+                <p class="text-brand-navy font-bold uppercase tracking-wide text-xs md:text-sm mb-4 relative z-10">Illuminating the dark.</p>
+                <p class="text-gray-600 text-base md:text-lg relative z-10 flex-grow">
                     We turn raw, overwhelming data into crisp, actionable insights and executive dashboards that prove your ROI.
                 </p>
             </div>
@@ -164,58 +121,57 @@
         </section>
 
         <!-- THE PROCESS & PROOF SECTION (BOTTOM SPLIT) -->
-        <section class="grid grid-cols-1 md:grid-cols-12 bg-brand-navy text-white mt-auto">
+        <section class="grid grid-cols-1 lg:grid-cols-12 bg-brand-navy text-white mt-auto">
             
             <!-- Engagement Model (Left: 7 Columns) -->
-            <div class="col-span-12 md:col-span-7 p-10 pr-12 relative">
-                <h2 class="text-brand-gold font-bold text-xl uppercase tracking-widest mb-8">How to Engage: Leadership Triage</h2>
+            <div class="col-span-1 lg:col-span-7 p-8 md:p-12 relative flex flex-col justify-center border-b lg:border-b-0 lg:border-r border-gray-700">
+                <h2 class="text-brand-gold font-bold text-lg md:text-xl uppercase tracking-widest mb-8">How to Engage: Leadership Triage</h2>
                 
-                <div class="flex items-start justify-between relative z-10">
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 relative z-10">
+                    <!-- Connector Line (Only visible on large screens) -->
+                    <div class="hidden sm:block absolute top-5 left-10 right-10 h-px bg-gray-600 z-0"></div>
+
                     <!-- Step 1 -->
-                    <div class="flex-1 pr-6 relative">
-                        <div class="w-10 h-10 border-2 border-brand-cyan rounded-full flex items-center justify-center text-brand-cyan font-bold mb-4 bg-brand-navy relative z-10">1</div>
+                    <div class="relative z-10">
+                        <div class="w-10 h-10 border-2 border-brand-cyan rounded-full flex items-center justify-center text-brand-cyan font-bold mb-4 bg-brand-navy">1</div>
                         <h4 class="font-bold text-lg text-white mb-2">Bring us the mess</h4>
-                        <p class="text-sm text-gray-300">You identify a complex, messy problem without worrying about which silo to call.</p>
-                        <!-- Connector Line -->
-                        <div class="hidden lg:block absolute top-5 left-10 w-full h-px bg-gray-600 z-0"></div>
+                        <p class="text-sm text-gray-300 leading-relaxed">You identify a complex, messy problem without worrying about which silo to call.</p>
                     </div>
                     
                     <!-- Step 2 -->
-                    <div class="flex-1 px-6 relative">
-                        <div class="w-10 h-10 bg-brand-cyan rounded-full flex items-center justify-center text-white font-bold mb-4 relative z-10 shadow-[0_0_15px_rgba(0,164,180,0.5)]">2</div>
+                    <div class="relative z-10">
+                        <div class="w-10 h-10 bg-brand-cyan rounded-full flex items-center justify-center text-white font-bold mb-4 shadow-[0_0_15px_rgba(0,164,180,0.5)]">2</div>
                         <h4 class="font-bold text-lg text-white mb-2">Central Scoping</h4>
-                        <p class="text-sm text-gray-300">Our leadership triages the challenge and frames the exact strategic approach required.</p>
-                        <!-- Connector Line -->
-                        <div class="hidden lg:block absolute top-5 left-10 w-full h-px bg-gray-600 z-0"></div>
+                        <p class="text-sm text-gray-300 leading-relaxed">Our leadership triages the challenge and frames the exact strategic approach required.</p>
                     </div>
                     
                     <!-- Step 3 -->
-                    <div class="flex-1 pl-6">
-                        <div class="w-10 h-10 border-2 border-brand-gold rounded-full flex items-center justify-center text-brand-gold font-bold mb-4 bg-brand-navy relative z-10">3</div>
+                    <div class="relative z-10">
+                        <div class="w-10 h-10 border-2 border-brand-gold rounded-full flex items-center justify-center text-brand-gold font-bold mb-4 bg-brand-navy">3</div>
                         <h4 class="font-bold text-lg text-white mb-2">Deployed Expertise</h4>
-                        <p class="text-sm text-gray-300">We deploy a custom, cross-functional team focused on actionable outcomes.</p>
+                        <p class="text-sm text-gray-300 leading-relaxed">We deploy a custom, cross-functional team focused on actionable outcomes.</p>
                     </div>
                 </div>
             </div>
 
             <!-- Proof of Impact (Right: 5 Columns) -->
-            <div class="col-span-12 md:col-span-5 bg-brand-slate p-10 flex flex-col justify-center">
-                <h2 class="text-brand-cyan font-bold text-xl uppercase tracking-widest mb-6">Proof of Impact</h2>
+            <div class="col-span-1 lg:col-span-5 bg-brand-slate p-8 md:p-12 flex flex-col justify-center">
+                <h2 class="text-brand-cyan font-bold text-lg md:text-xl uppercase tracking-widest mb-6">Proof of Impact</h2>
                 
                 <div class="space-y-6">
                     <div class="flex items-start">
-                        <i class="fa-solid fa-check-circle text-brand-gold mt-1 mr-4 text-xl"></i>
+                        <i class="fa-solid fa-check-circle text-brand-gold mt-1 mr-4 text-xl flex-shrink-0"></i>
                         <div>
                             <h4 class="font-bold text-white text-lg">The EFRS Cost of Service Study</h4>
-                            <p class="text-gray-300 text-sm mt-1">Delivered robust, defensible financial and operational analysis to secure critical resourcing decisions.</p>
+                            <p class="text-gray-300 text-sm mt-1 leading-relaxed">Delivered robust, defensible financial and operational analysis to secure critical resourcing decisions.</p>
                         </div>
                     </div>
                     
                     <div class="flex items-start">
-                        <i class="fa-solid fa-check-circle text-brand-cyan mt-1 mr-4 text-xl"></i>
+                        <i class="fa-solid fa-check-circle text-brand-cyan mt-1 mr-4 text-xl flex-shrink-0"></i>
                         <div>
                             <h4 class="font-bold text-white text-lg">Integrated Strategic Frameworks</h4>
-                            <p class="text-gray-300 text-sm mt-1">Transforming executive quarterly conversations by tying risk, budget, and performance metrics into one cohesive narrative.</p>
+                            <p class="text-gray-300 text-sm mt-1 leading-relaxed">Transforming executive quarterly conversations by tying risk, budget, and performance metrics into one cohesive narrative.</p>
                         </div>
                     </div>
                 </div>
