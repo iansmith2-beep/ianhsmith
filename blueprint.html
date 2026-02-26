@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One DSS | Internal Service Blueprint Template</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            navy: '#0B1F3F',
+                            gold: '#D4AF37',
+                            cyan: '#00A4B4',
+                            slate: '#334155',
+                            light: '#F8FAFC'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #e2e8f0;
+            color: #334155;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        /* Document Container */
+        .document-wrapper {
+            max-width: 1000px;
+            margin: 2rem auto;
+            background-color: white;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Print Styles for PDF Export */
+        @media print {
+            body {
+                background-color: white;
+                margin: 0;
+                padding: 0;
+            }
+            .document-wrapper {
+                margin: 0 auto;
+                box-shadow: none;
+                max-width: 100%;
+            }
+            .page-break {
+                page-break-before: always;
+            }
+            .avoid-break {
+                page-break-inside: avoid;
+            }
+            .no-print {
+                display: none !important;
+            }
+        }
+
+        .section-header {
+            border-bottom: 3px solid #00A4B4; /* brand-cyan */
+            padding-bottom: 0.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        /* Placeholder specific styling to make it obvious to editors */
+        .placeholder-text {
+            color: #64748b;
+            font-style: italic;
+            background-color: #f1f5f9;
+            padding: 0.125rem 0.25rem;
+            border-radius: 0.25rem;
+        }
+    </style>
+</head>
+<body class="antialiased font-sans">
+
+    <!-- Web-only toolbar for printing -->
+    <div class="max-w-[1000px] mx-auto mb-4 flex justify-end no-print">
+        <button onclick="window.print()" class="bg-brand-navy text-white px-4 py-2 rounded shadow hover:bg-opacity-90 transition flex items-center">
+            <i class="fa-solid fa-file-pdf mr-2"></i> Export to PDF / Print
+        </button>
+    </div>
+
+    <div class="document-wrapper relative overflow-hidden">
+
+        <!-- ==========================================
+             COVER PAGE
+        =========================================== -->
+        <header class="bg-brand-navy text-white p-16 md:p-24 relative avoid-break">
+            <!-- Decorative Pattern -->
+            <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#00A4B4 1px, transparent 1px); background-size: 20px 20px;"></div>
+            
+            <div class="relative z-10 flex flex-col h-full justify-center">
+                <div class="w-20 h-20 bg-brand-navy border-2 border-brand-gold rounded-full flex items-center justify-center mb-8 shadow-lg">
+                    <i class="fa-solid fa-compass text-3xl text-brand-gold"></i>
+                </div>
+                
+                <h3 class="text-brand-gold font-bold tracking-widest uppercase text-sm mb-4">Internal Reference Document</h3>
+                <h1 class="text-5xl md:text-7xl font-black tracking-tight mb-6 uppercase leading-tight">
+                    One DSS <br/>
+                    <span class="text-brand-cyan">Service Blueprint</span>
+                </h1>
+                <div class="w-32 h-2 bg-brand-gold mb-8"></div>
+                
+                <p class="text-2xl font-light text-gray-300 max-w-2xl leading-relaxed">
+                    The foundational operating model, engagement framework, and detailed service catalog for our embedded strategic partnership.
+                </p>
+                
+                <div class="mt-16 text-sm text-gray-400 font-medium tracking-wider uppercase">
+                    Department Strategy (DSS) | City of Edmonton | Updated: 2026
+                </div>
+            </div>
+        </header>
+
+        <!-- ==========================================
+             SECTION 1: THE FOUNDATION
+        =========================================== -->
+        <section class="p-12 md:p-16 bg-white avoid-break">
+            <div class="section-header">
+                <h2 class="text-3xl font-extrabold text-brand-navy uppercase tracking-wide">1. Our Strategic Foundation</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+                <div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">[Core Concept 1: e.g., The Paradigm Shift]</h3>
+                    <p class="text-gray-700 leading-relaxed mb-6">
+                        <span class="placeholder-text">[Detail your core narrative shift here. Explain the transition from historical approaches to the new embedded partnership model. For example, moving from 'enforcers' to 'partners'.]</span>
+                    </p>
+                    <p class="text-gray-700 leading-relaxed mb-6">
+                        <span class="placeholder-text">[Elaborate on the structural or mindset changes necessary to serve your enabling service clients effectively.]</span>
+                    </p>
+                </div>
+                
+                <div class="bg-brand-light p-8 rounded-xl border border-gray-200">
+                    <h3 class="text-xl font-bold text-brand-navy mb-6">[Core Metaphor: e.g., Engine & Vehicle]</h3>
+                    <div class="flex items-start mb-6">
+                        <i class="fa-solid fa-truck-fast text-2xl text-brand-cyan mt-1 mr-4 w-8 text-center"></i>
+                        <div>
+                            <h4 class="font-bold text-gray-900">[Component A: The Clients]</h4>
+                            <p class="text-sm text-gray-600 mt-1"><span class="placeholder-text">[Define the client's role. E.g., Branch operations and frontline delivery that enables the city to function.]</span></p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <i class="fa-solid fa-engine text-2xl text-brand-gold mt-1 mr-4 w-8 text-center"></i>
+                        <div>
+                            <h4 class="font-bold text-gray-900">[Component B: One DSS]</h4>
+                            <p class="text-sm text-gray-600 mt-1"><span class="placeholder-text">[Define your team's role. E.g., Strategy, policy, risk mitigation, and performance analytics.]</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             SECTION 2: OPERATING MODEL
+        =========================================== -->
+        <section class="p-12 md:p-16 bg-gray-50 border-t border-gray-200 avoid-break page-break">
+            <div class="section-header">
+                <h2 class="text-3xl font-extrabold text-brand-navy uppercase tracking-wide">2. Engagement Model Framework</h2>
+            </div>
+            
+            <p class="text-lg text-gray-600 mb-10 max-w-3xl">
+                <span class="placeholder-text">[Provide a brief overview of how clients engage with the team. Emphasize the removal of silos and the centralized intake process.]</span>
+            </p>
+
+            <div class="flex flex-col space-y-8">
+                <!-- Step 1 -->
+                <div class="flex bg-white p-6 rounded-lg shadow-sm border border-gray-100 items-center">
+                    <div class="w-16 h-16 flex-shrink-0 bg-brand-navy text-white rounded-full flex items-center justify-center text-2xl font-bold mr-6">1</div>
+                    <div>
+                        <h3 class="text-xl font-bold text-brand-navy">[Phase 1 Name: e.g., Client Initiation]</h3>
+                        <p class="text-gray-600 mt-1"><span class="placeholder-text">[Describe the first step. E.g., Clients identify a complex challenge at the onset and bring us in at "Day One."]</span></p>
+                    </div>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="flex bg-white p-6 rounded-lg shadow-sm border border-gray-100 items-center">
+                    <div class="w-16 h-16 flex-shrink-0 bg-brand-gold text-white rounded-full flex items-center justify-center text-2xl font-bold mr-6">2</div>
+                    <div>
+                        <h3 class="text-xl font-bold text-brand-navy">[Phase 2 Name: e.g., Central Scoping & Triage]</h3>
+                        <p class="text-gray-600 mt-1"><span class="placeholder-text">[Describe the internal process. E.g., Leadership triages the request, assesses complexity, and frames the required approach.]</span></p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="flex bg-white p-6 rounded-lg shadow-sm border border-gray-100 items-center">
+                    <div class="w-16 h-16 flex-shrink-0 bg-brand-cyan text-white rounded-full flex items-center justify-center text-2xl font-bold mr-6">3</div>
+                    <div>
+                        <h3 class="text-xl font-bold text-brand-navy">[Phase 3 Name: e.g., Deployed Expertise]</h3>
+                        <p class="text-gray-600 mt-1"><span class="placeholder-text">[Describe the execution. E.g., Assigning a custom, cross-functional team focused on actionable outcomes.]</span></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             SECTION 3: DETAILED SERVICE MENU
+        =========================================== -->
+        <section class="p-12 md:p-16 bg-white border-t border-gray-200 page-break">
+            <div class="section-header">
+                <h2 class="text-3xl font-extrabold text-brand-navy uppercase tracking-wide">3. The Service Catalog Blueprint</h2>
+            </div>
+            
+            <p class="text-lg text-gray-600 mb-8 max-w-4xl">
+                This template maps common client pain points directly to our deployable solutions. Use this layout to build out the full catalog for scoping projects.
+            </p>
+
+            <!-- PILLAR 1 TEMPLATE -->
+            <div class="mb-12 avoid-break">
+                <div class="flex items-center mb-6 bg-brand-navy text-white p-4 rounded-t-lg">
+                    <i class="fa-solid fa-chess-knight text-2xl text-brand-gold mr-4"></i>
+                    <h3 class="text-2xl font-bold uppercase tracking-wide">Pillar 1: [Name e.g., Strategic Planning]</h3>
+                </div>
+                <div class="border border-gray-200 rounded-b-lg overflow-hidden">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-gray-50 text-xs uppercase tracking-wider text-gray-500 border-b border-gray-200">
+                                <th class="p-4 w-1/3">Client Problem</th>
+                                <th class="p-4 w-1/3 border-l border-gray-200">DSS Solution</th>
+                                <th class="p-4 w-1/3 border-l border-gray-200">Final Deliverable</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-sm text-gray-700 divide-y divide-gray-200">
+                            <!-- Example Row -->
+                            <tr>
+                                <td class="p-4 italic font-medium text-gray-900">Example: "A new leadership mandate has misaligned our budget and delivery."</td>
+                                <td class="p-4 font-bold text-brand-navy border-l border-gray-200">Strategic Alignment & Business Planning</td>
+                                <td class="p-4 border-l border-gray-200 text-gray-800">A cohesive Business Plan connecting operational realities with new corporate directives.</td>
+                            </tr>
+                            <!-- Placeholder Row -->
+                            <tr>
+                                <td class="p-4 italic"><span class="placeholder-text">"[Insert common client pain point or scenario related to this pillar]"</span></td>
+                                <td class="p-4 font-bold text-brand-navy border-l border-gray-200"><span class="placeholder-text">[Specific Solution Name]</span></td>
+                                <td class="p-4 border-l border-gray-200"><span class="placeholder-text">[Describe the concrete output or result the client receives]</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- PILLAR 2 TEMPLATE -->
+            <div class="mb-12 avoid-break">
+                <div class="flex items-center mb-6 bg-brand-navy text-white p-4 rounded-t-lg">
+                    <i class="fa-solid fa-magnifying-glass-chart text-2xl text-brand-gold mr-4"></i>
+                    <h3 class="text-2xl font-bold uppercase tracking-wide">Pillar 2: [Name e.g., Service Improvement]</h3>
+                </div>
+                <div class="border border-gray-200 rounded-b-lg overflow-hidden">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-gray-50 text-xs uppercase tracking-wider text-gray-500 border-b border-gray-200">
+                                <th class="p-4 w-1/3">Client Problem</th>
+                                <th class="p-4 w-1/3 border-l border-gray-200">DSS Solution</th>
+                                <th class="p-4 w-1/3 border-l border-gray-200">Final Deliverable</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-sm text-gray-700 divide-y divide-gray-200">
+                            <!-- Example Row -->
+                            <tr>
+                                <td class="p-4 italic font-medium text-gray-900">Example: "A critical internal service is messy, and we don't know where to start."</td>
+                                <td class="p-4 font-bold text-brand-navy border-l border-gray-200">End-to-End Service Reviews</td>
+                                <td class="p-4 border-l border-gray-200 text-gray-800">A comprehensive diagnostic of pain points backed by a prioritized roadmap.</td>
+                            </tr>
+                             <!-- Placeholder Row -->
+                             <tr>
+                                <td class="p-4 italic"><span class="placeholder-text">"[Insert common client pain point or scenario related to this pillar]"</span></td>
+                                <td class="p-4 font-bold text-brand-navy border-l border-gray-200"><span class="placeholder-text">[Specific Solution Name]</span></td>
+                                <td class="p-4 border-l border-gray-200"><span class="placeholder-text">[Describe the concrete output or result the client receives]</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- PILLAR 3 TEMPLATE -->
+            <div class="mb-12 avoid-break">
+                <div class="flex items-center mb-6 bg-brand-navy text-white p-4 rounded-t-lg">
+                    <i class="fa-solid fa-chart-line text-2xl text-brand-gold mr-4"></i>
+                    <h3 class="text-2xl font-bold uppercase tracking-wide">Pillar 3: [Name e.g., Performance & Analytics]</h3>
+                </div>
+                <div class="border border-gray-200 rounded-b-lg overflow-hidden">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-gray-50 text-xs uppercase tracking-wider text-gray-500 border-b border-gray-200">
+                                <th class="p-4 w-1/3">Client Problem</th>
+                                <th class="p-4 w-1/3 border-l border-gray-200">DSS Solution</th>
+                                <th class="p-4 w-1/3 border-l border-gray-200">Final Deliverable</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-sm text-gray-700 divide-y divide-gray-200">
+                            <!-- Example Row -->
+                            <tr>
+                                <td class="p-4 italic font-medium text-gray-900">Example: "We have mountains of data but struggle to tell our value story."</td>
+                                <td class="p-4 font-bold text-brand-navy border-l border-gray-200">Measurement Frameworks</td>
+                                <td class="p-4 border-l border-gray-200 text-gray-800">Customized KPIs tracking actual outcomes, not just outputs.</td>
+                            </tr>
+                             <!-- Placeholder Row -->
+                             <tr>
+                                <td class="p-4 italic"><span class="placeholder-text">"[Insert common client pain point or scenario related to this pillar]"</span></td>
+                                <td class="p-4 font-bold text-brand-navy border-l border-gray-200"><span class="placeholder-text">[Specific Solution Name]</span></td>
+                                <td class="p-4 border-l border-gray-200"><span class="placeholder-text">[Describe the concrete output or result the client receives]</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- INTEGRATED SOLUTIONS TEMPLATE -->
+            <div class="avoid-break page-break">
+                <div class="flex items-center mb-6 bg-gray-900 text-white p-4 rounded-t-lg">
+                    <i class="fa-solid fa-network-wired text-2xl text-brand-cyan mr-4"></i>
+                    <h3 class="text-2xl font-bold uppercase tracking-wide">Integrated & Cross-Functional Solutions</h3>
+                </div>
+                <p class="text-sm text-gray-500 mb-4 px-2">Use this section for complex deployments requiring multiple pillars.</p>
+                <div class="border border-gray-200 rounded-b-lg overflow-hidden">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-brand-light text-xs uppercase tracking-wider text-gray-600 border-b border-gray-300">
+                                <th class="p-4 w-1/3">Client Problem</th>
+                                <th class="p-4 w-1/3 border-l border-gray-200">Cross-Functional Solution</th>
+                                <th class="p-4 w-1/3 border-l border-gray-200">Unified Deliverable</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-sm text-gray-700 divide-y divide-gray-200">
+                            <!-- Example Integration Row -->
+                            <tr class="bg-white">
+                                <td class="p-4 italic font-medium text-gray-900">Example: "We are launching a new delivery model and need to update red-tape policy while navigating operational trade-offs."</td>
+                                <td class="p-4 border-l border-gray-200">
+                                    <span class="font-bold text-brand-navy block mb-2">Integrated Policy & Risk Strategy</span>
+                                    <div class="flex gap-1 flex-wrap">
+                                        <span class="inline-block px-2 py-1 bg-brand-navy text-white text-[10px] rounded uppercase font-bold">Pillar 1</span>
+                                        <span class="inline-block px-2 py-1 bg-brand-gold text-brand-navy text-[10px] rounded uppercase font-bold">Pillar 2</span>
+                                    </div>
+                                </td>
+                                <td class="p-4 border-l border-gray-200 text-gray-800">Modern, enforceable policy frameworks combined with proactive risk mitigation strategies for a safe launch.</td>
+                            </tr>
+                             <!-- Placeholder Integration Row -->
+                             <tr class="bg-gray-50">
+                                <td class="p-4 italic"><span class="placeholder-text">"[Insert highly complex, multi-faceted client scenario]"</span></td>
+                                <td class="p-4 border-l border-gray-200">
+                                    <span class="font-bold text-brand-navy block mb-2"><span class="placeholder-text">[Integrated Solution Name]</span></span>
+                                    <div class="flex gap-1 flex-wrap">
+                                        <span class="inline-block px-2 py-1 bg-gray-300 text-gray-700 text-[10px] rounded uppercase font-bold border border-gray-400 border-dashed">Select Tags</span>
+                                    </div>
+                                </td>
+                                <td class="p-4 border-l border-gray-200"><span class="placeholder-text">[Describe the comprehensive, multi-part deliverable]</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             SECTION 4: PROOF OF IMPACT
+        =========================================== -->
+        <section class="p-12 md:p-16 bg-gray-50 border-t border-gray-200 avoid-break">
+            <div class="section-header">
+                <h2 class="text-3xl font-extrabold text-brand-navy uppercase tracking-wide">4. Validation & Case Studies</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Case Study Template 1 -->
+                <div class="bg-white p-8 rounded-xl border border-gray-200 shadow-sm border-l-4 border-l-brand-gold border-dashed">
+                    <i class="fa-solid fa-star text-3xl text-gray-300 mb-4"></i>
+                    <h3 class="text-xl font-bold text-brand-navy mb-3"><span class="placeholder-text">[Insert High-Impact Project Name]</span></h3>
+                    <p class="text-gray-600 leading-relaxed text-sm">
+                        <span class="placeholder-text">[Describe the project. Outline the challenge, the specific DSS interventions used, and the undeniable evidence or results secured. Highlight which core pillars were utilized.]</span>
+                    </p>
+                </div>
+                
+                <!-- Case Study Template 2 -->
+                <div class="bg-white p-8 rounded-xl border border-gray-200 shadow-sm border-l-4 border-l-brand-cyan border-dashed">
+                    <i class="fa-solid fa-star text-3xl text-gray-300 mb-4"></i>
+                    <h3 class="text-xl font-bold text-brand-navy mb-3"><span class="placeholder-text">[Insert High-Impact Project Name]</span></h3>
+                    <p class="text-gray-600 leading-relaxed text-sm">
+                        <span class="placeholder-text">[Describe a project that transformed executive conversations or strategic alignment. Outline the challenge, the specific DSS interventions used, and the results secured.]</span>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             FOOTER
+        =========================================== -->
+        <footer class="bg-brand-navy text-white p-12 text-center avoid-break">
+            <h2 class="text-2xl font-bold uppercase tracking-widest text-brand-gold mb-2">ONE DSS</h2>
+            <p class="text-brand-cyan mb-6">Embedded Strategic Partners</p>
+            <div class="w-16 h-1 bg-gray-600 mx-auto mb-6"></div>
+            <p class="text-sm text-gray-400">
+                Department Strategy (DSS) | Edmonton | [Insert Contact Email]
+            </p>
+        </footer>
+
+    </div>
+</body>
+</html>
