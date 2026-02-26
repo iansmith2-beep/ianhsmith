@@ -27,12 +27,12 @@
     </script>
     <style>
         body {
-            background-color: #e2e8f0; /* Darker backdrop to make slides pop */
-            padding: 0; /* Adjusted so the nav bar sits perfectly flush at the top */
+            background-color: #e2e8f0; 
+            padding: 0; /* Adjusted to 0 so the nav bar sits flush against the top of the browser */
             margin: 0;
         }
         
-        /* Global Navigation Bar at the very top of the page */
+        /* The New Global Navigation Bar */
         .global-nav {
             background-color: #0B1F3F;
             padding: 1rem 2rem;
@@ -55,7 +55,7 @@
         .slide-canvas {
             width: 100%;
             max-width: 1100px;
-            /* FIX: Removed 'aspect-ratio: 16 / 9;' so slide text won't get chopped off */
+            /* Aspect ratio removed here to prevent text chopping */
             margin: 0 auto 4rem auto;
             background-color: white;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
@@ -66,7 +66,6 @@
             position: relative;
         }
         
-        /* Subtle grid pattern for textured backgrounds */
         .bg-pattern {
             background-image: radial-gradient(#00A4B4 1px, transparent 1px);
             background-size: 30px 30px;
@@ -75,6 +74,40 @@
     </style>
 </head>
 <body class="antialiased text-brand-slate font-sans selection:bg-brand-cyan selection:text-white">
+    
+    <div class="global-nav">
+        <h2 class="text-brand-gold font-bold tracking-widest uppercase text-sm flex items-center">
+            <i class="fa-solid fa-compass mr-2 text-lg"></i> Department Strategy (DSS)
+        </h2>
+        
+        <nav class="flex gap-2">
+            <a href="index.html" class="px-4 py-1.5 border border-white/20 rounded bg-white/5 text-white text-sm font-bold hover:bg-white hover:text-brand-navy transition-all duration-300">
+                <i class="fa-solid fa-house mr-1"></i> Home
+            </a>
+            
+            <a href="executive_wayfinder.html" class="px-4 py-1.5 border border-white/20 rounded bg-white/5 text-white text-sm font-bold hover:bg-brand-cyan hover:border-brand-cyan transition-all duration-300">
+                1
+            </a>
+            
+            <a href="menu_of_impact.html" class="px-4 py-1.5 border border-white/20 rounded bg-white/5 text-white text-sm font-bold hover:bg-brand-gold hover:border-brand-gold transition-all duration-300">
+                2
+            </a>
+            
+            <a href="pitch_deck.html" class="px-4 py-1.5 bg-brand-cyan rounded text-white text-sm font-bold shadow-md cursor-default">
+                3
+            </a>
+        </nav>
+    </div>
+    
+    ```
+
+### Step 4: Save and Refresh
+1. Make sure the rest of your slide code (`<div class="slide-canvas">` and everything below it) is still there untouched!
+2. Click the green **Commit changes** button.
+3. Wait about a minute for GitHub Pages to build the update.
+4. Go to your live pitch deck page and do a **Hard Refresh** (Cmd+Shift+R on Mac or Ctrl+F5 on Windows).
+
+Would you like me to help verify that the `index.html` file has the correct links back to these pages now that the navigation is set up?
     
     <div class="global-nav">
         <h2 class="text-brand-gold font-bold tracking-widest uppercase text-sm flex items-center">
