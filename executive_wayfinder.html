@@ -1,59 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>One DSS | Executive Wayfinder Placemat</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            navy: '#0B1F3F',     // Deep Corporate Navy
-                            gold: '#D4AF37',     // Premium Gold
-                            cyan: '#00A4B4',     // Modern Cyan
-                            slate: '#334155',    // Dark Gray Text
-                            light: '#F8FAFC'     // Light background
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-</head>
-<!-- Removed restrictive flex centering from body to prevent header cutoff -->
-<body class="antialiased text-brand-slate bg-slate-200 p-4 md:p-8 min-h-screen font-sans">
-
-    <!-- 
-      Prototype Wrapper: 
-      - max-w-[1500px]: Keeps it wide like a placemat on big screens
-      - mx-auto: Centers it safely horizontally
-      - overflow-hidden: Only clips the rounded corners, does NOT restrict height
-      - h-auto: Allows the document to grow as tall as it needs to be
-    -->
-    <div class="max-w-[1500px] mx-auto w-full bg-white rounded-xl shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] border border-gray-300 overflow-hidden flex flex-col h-auto">
-        
-        <!-- HEADER SECTION -->
-        <header class="bg-brand-navy p-8 md:p-12 relative">
-            <!-- Subtle background pattern -->
-            <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] pointer-events-none"></div>
+<header class="bg-brand-navy p-10 flex justify-between items-center relative overflow-hidden">
+            <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
             
             <div class="relative z-10 w-full">
-                <h2 class="text-brand-gold font-bold tracking-widest uppercase text-xs md:text-sm mb-3 flex items-center">
-                    <i class="fa-solid fa-compass mr-2 text-lg"></i> Department Strategy (DSS)
-                </h2>
-                <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight">
+                
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
+                    <h2 class="text-brand-gold font-bold tracking-widest uppercase text-sm flex items-center">
+                        <i class="fa-solid fa-compass mr-2 text-lg"></i> Department Strategy (DSS)
+                    </h2>
+                    
+                    <nav class="flex gap-2">
+                        <a href="index.html" class="px-4 py-1.5 border border-white/20 rounded bg-white/5 text-white text-sm font-bold hover:bg-white hover:text-brand-navy transition-all duration-300 flex items-center">
+                            <i class="fa-solid fa-house mr-1"></i> Home
+                        </a>
+                        
+                        <a href="executive_wayfinder.html" class="px-4 py-1.5 bg-brand-cyan rounded text-white text-sm font-bold shadow-md cursor-default">
+                            1
+                        </a>
+                        
+                        <a href="menu_of_impact.html" class="px-4 py-1.5 border border-white/20 rounded bg-white/5 text-white text-sm font-bold hover:bg-brand-gold hover:border-brand-gold transition-all duration-300">
+                            2
+                        </a>
+                        
+                        <a href="pitch_deck.html" class="px-4 py-1.5 border border-white/20 rounded bg-white/5 text-white text-sm font-bold hover:bg-brand-cyan hover:border-brand-cyan transition-all duration-300">
+                            3
+                        </a>
+                    </nav>
+                </div>
+
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight uppercase">
                     ONE DSS: SENSE-MAKERS. 
                     <span class="text-brand-cyan">WAYFINDERS.</span> 
                     STRATEGIC PARTNERS.
