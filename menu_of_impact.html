@@ -3,12 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>One DSS | Menu of Impact Matrix</title>
-    <!-- Tailwind CSS -->
+    <title>One DSS | Menu of Impact</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
     
     <script>
@@ -23,10 +20,6 @@
                             slate: '#334155',
                             light: '#F8FAFC'
                         }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        serif: ['Playfair Display', 'serif']
                     }
                 }
             }
@@ -37,13 +30,14 @@
             background-color: #e2e8f0;
             display: flex;
             justify-content: center;
+            align-items: center;
             min-height: 100vh;
             padding: 2rem;
         }
-        /* Simulates a vertical printed document (e.g., A4 or US Letter scaled) */
-        .document-container {
+        /* Fixed container - removed aspect ratio to prevent content chopping */
+        .placemat-container {
             width: 100%;
-            max-width: 1200px;
+            max-width: 1500px;
             background-color: white;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
             display: flex;
@@ -51,34 +45,43 @@
             overflow: hidden;
             position: relative;
         }
-        .matrix-row {
-            transition: background-color 0.2s ease;
-        }
-        .matrix-row:hover {
-            background-color: #F8FAFC; /* brand-light */
-        }
     </style>
 </head>
 <body class="antialiased text-brand-slate">
 
-    <!-- Prototype Wrapper -->
-    <div class="document-container rounded-xl border border-gray-300">
+    <div class="placemat-container rounded-xl border border-gray-300">
         
-        <!-- HEADER SECTION -->
-        <header class="bg-brand-navy p-10 relative overflow-hidden">
+        <header class="bg-brand-navy p-10 flex justify-between items-center relative overflow-hidden">
             <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
-            <div class="relative z-10 w-full flex flex-col md:flex-row md:justify-between md:items-end">
-                <div>
-                    <h2 class="text-brand-gold font-bold tracking-widest uppercase text-sm mb-2 flex items-center">
-                        <i class="fa-solid fa-list-check mr-2 text-lg"></i> Executive Reference Guide
+            
+            <div class="relative z-10 w-full">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
+                    <h2 class="text-brand-gold font-bold tracking-widest uppercase text-sm flex items-center">
+                        <i class="fa-solid fa-compass mr-2 text-lg"></i> Department Strategy (DSS)
                     </h2>
-                    <h1 class="text-4xl md:text-5xl font-extrabold text-white tracking-tight">
-                        THE ONE DSS <span class="text-brand-cyan">MENU OF IMPACT</span>
-                    </h1>
+                    
+                    <nav class="flex gap-2">
+                        <a href="index.html" class="px-4 py-1.5 border border-white/20 rounded bg-white/5 text-white text-sm font-bold hover:bg-white hover:text-brand-navy transition-all duration-300">
+                            <i class="fa-solid fa-house mr-1"></i> Home
+                        </a>
+                        
+                        <a href="executive_wayfinder.html" class="px-4 py-1.5 border border-white/20 rounded bg-white/5 text-white text-sm font-bold hover:bg-brand-cyan hover:border-brand-cyan transition-all duration-300">
+                            1
+                        </a>
+                        
+                        <a href="menu_of_impact.html" class="px-4 py-1.5 bg-brand-gold rounded text-brand-navy text-sm font-bold shadow-md cursor-default">
+                            2
+                        </a>
+                        
+                        <a href="pitch_deck.html" class="px-4 py-1.5 border border-white/20 rounded bg-white/5 text-white text-sm font-bold hover:bg-brand-cyan hover:border-brand-cyan transition-all duration-300">
+                            3
+                        </a>
+                    </nav>
                 </div>
-                <div class="mt-4 md:mt-0 text-right">
-                    <p class="text-gray-300 font-medium">Practical solutions for complex municipal challenges.</p>
-                </div>
+
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight uppercase">
+                    MENU OF <span class="text-brand-gold">IMPACT</span>
+                </h1>
             </div>
         </header>
 
