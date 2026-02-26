@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One DSS | Menu of Impact Matrix</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            navy: '#0B1F3F',
+                            gold: '#D4AF37',
+                            cyan: '#00A4B4',
+                            slate: '#334155',
+                            light: '#F8FAFC'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #e2e8f0;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+        /* Simulates a vertical printed document (e.g., A4 or US Letter scaled) */
+        .document-container {
+            width: 100%;
+            max-width: 1200px;
+            background-color: white;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            position: relative;
+        }
+        .matrix-row {
+            transition: background-color 0.2s ease;
+        }
+        .matrix-row:hover {
+            background-color: #F8FAFC; /* brand-light */
+        }
+    </style>
+</head>
+<body class="antialiased text-brand-slate">
+
+    <!-- Prototype Wrapper -->
+    <div class="document-container rounded-xl border border-gray-300">
+        
+        <!-- HEADER SECTION -->
+        <header class="bg-brand-navy p-10 relative overflow-hidden">
+            <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+            <div class="relative z-10 w-full flex flex-col md:flex-row md:justify-between md:items-end">
+                <div>
+                    <h2 class="text-brand-gold font-bold tracking-widest uppercase text-sm mb-2 flex items-center">
+                        <i class="fa-solid fa-list-check mr-2 text-lg"></i> Executive Reference Guide
+                    </h2>
+                    <h1 class="text-4xl md:text-5xl font-extrabold text-white tracking-tight">
+                        THE ONE DSS <span class="text-brand-cyan">MENU OF IMPACT</span>
+                    </h1>
+                </div>
+                <div class="mt-4 md:mt-0 text-right">
+                    <p class="text-gray-300 font-medium">Practical solutions for complex municipal challenges.</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- INTRO SECTION -->
+        <section class="bg-brand-light p-8 border-b border-gray-200">
+            <p class="text-xl font-light leading-relaxed text-gray-700">
+                As a Branch Manager, your mandate is massive, and the variables are constantly shifting. Department Strategy (DSS) is your embedded consulting firm. <strong>We exist to solve the problems that keep you up at night.</strong>
+            </p>
+            <p class="mt-4 text-sm font-semibold text-brand-navy uppercase tracking-wider bg-white inline-block px-4 py-2 border border-gray-200 rounded shadow-sm">
+                <i class="fa-solid fa-arrow-turn-down text-brand-cyan mr-2"></i> How to use this guide: Identify your current pain point below to see our deployable solution.
+            </p>
+        </section>
+
+        <!-- MATRIX CONTENT -->
+        <div class="flex-grow">
+
+            <!-- PILLAR 1: Strategic Planning -->
+            <div class="border-b-4 border-gray-200">
+                <div class="bg-gray-100 px-8 py-4 border-l-8 border-brand-navy flex items-center">
+                    <div class="w-10 h-10 rounded-full bg-brand-navy text-white flex items-center justify-center mr-4 font-bold">01</div>
+                    <h2 class="text-2xl font-bold text-brand-navy">Strategic Planning & Governance</h2>
+                </div>
+                
+                <div class="flex flex-col">
+                    <!-- Column Headers -->
+                    <div class="hidden md:flex text-xs font-bold uppercase tracking-wider text-gray-400 bg-white border-b border-gray-200">
+                        <div class="w-1/3 p-4 pl-8">When You Are Facing... (The Problem)</div>
+                        <div class="w-1/4 p-4">We Deploy... (The Solution)</div>
+                        <div class="w-5/12 p-4 pr-8">The Deliverable (The Impact)</div>
+                    </div>
+
+                    <!-- Row 1 -->
+                    <div class="flex flex-col md:flex-row border-b border-gray-100 matrix-row">
+                        <div class="w-full md:w-1/3 p-6 pl-8 bg-gray-50 border-r border-gray-100 italic text-gray-600">
+                            "We have a new mandate from Council, but our budget, policy, and operations aren't aligned to deliver it."
+                        </div>
+                        <div class="w-full md:w-1/4 p-6 font-bold text-brand-navy flex items-center">
+                            Strategic Alignment & Business Planning
+                        </div>
+                        <div class="w-full md:w-5/12 p-6 pr-8 text-gray-700 flex items-start">
+                            <i class="fa-solid fa-bullseye text-brand-navy mt-1 mr-3"></i>
+                            A cohesive Business Plan that seamlessly connects your operational realities with budget requests and corporate strategy.
+                        </div>
+                    </div>
+
+                    <!-- Row 2 -->
+                    <div class="flex flex-col md:flex-row border-b border-gray-100 matrix-row">
+                        <div class="w-full md:w-1/3 p-6 pl-8 bg-gray-50 border-r border-gray-100 italic text-gray-600">
+                            "Our quarterly executive reviews feel disjointed; we're talking about budget, risk, and strategy in separate silos."
+                        </div>
+                        <div class="w-full md:w-1/4 p-6 font-bold text-brand-navy flex items-center">
+                            Integrated Strategic Frameworks
+                        </div>
+                        <div class="w-full md:w-5/12 p-6 pr-8 text-gray-700 flex items-start">
+                            <i class="fa-solid fa-puzzle-piece text-brand-navy mt-1 mr-3"></i>
+                            A unified reporting framework that ties risk, budget, and measures into a single, compelling story for executive conversations.
+                        </div>
+                    </div>
+
+                    <!-- Row 3 -->
+                    <div class="flex flex-col md:flex-row matrix-row">
+                        <div class="w-full md:w-1/3 p-6 pl-8 bg-gray-50 border-r border-gray-100 italic text-gray-600">
+                            "We need to update a core policy, but it’s tangled in historical red tape and competing stakeholder interests."
+                        </div>
+                        <div class="w-full md:w-1/4 p-6 font-bold text-brand-navy flex items-center">
+                            Policy Design & Governance Support
+                        </div>
+                        <div class="w-full md:w-5/12 p-6 pr-8 text-gray-700 flex items-start">
+                            <i class="fa-solid fa-scale-balanced text-brand-navy mt-1 mr-3"></i>
+                            Clear, modern, and enforceable policy frameworks that reduce bureaucratic friction and enable service delivery.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PILLAR 2: Service Improvement -->
+            <div class="border-b-4 border-gray-200">
+                <div class="bg-gray-100 px-8 py-4 border-l-8 border-brand-gold flex items-center">
+                    <div class="w-10 h-10 rounded-full bg-brand-gold text-white flex items-center justify-center mr-4 font-bold">02</div>
+                    <h2 class="text-2xl font-bold text-brand-navy">Service Improvement & Advisory</h2>
+                </div>
+                
+                <div class="flex flex-col">
+                    <!-- Row 1 -->
+                    <div class="flex flex-col md:flex-row border-b border-gray-100 matrix-row">
+                        <div class="w-full md:w-1/3 p-6 pl-8 bg-gray-50 border-r border-gray-100 italic text-gray-600">
+                            "A critical service is underperforming or costing too much, and we need an objective look at why."
+                        </div>
+                        <div class="w-full md:w-1/4 p-6 font-bold text-brand-navy flex items-center">
+                            End-to-End Service Reviews
+                        </div>
+                        <div class="w-full md:w-5/12 p-6 pr-8 text-gray-700 flex items-start">
+                            <i class="fa-solid fa-magnifying-glass-chart text-brand-gold mt-1 mr-3"></i>
+                            A comprehensive diagnostic of service friction points, backed by a practical, prioritized roadmap for enhancement.
+                        </div>
+                    </div>
+
+                    <!-- Row 2 -->
+                    <div class="flex flex-col md:flex-row border-b border-gray-100 matrix-row">
+                        <div class="w-full md:w-1/3 p-6 pl-8 bg-gray-50 border-r border-gray-100 italic text-gray-600">
+                            "We are launching a new initiative, but there are massive blind spots and potential operational liabilities."
+                        </div>
+                        <div class="w-full md:w-1/4 p-6 font-bold text-brand-navy flex items-center">
+                            Strategic Risk Management
+                        </div>
+                        <div class="w-full md:w-5/12 p-6 pr-8 text-gray-700 flex items-start">
+                            <i class="fa-solid fa-shield-halved text-brand-gold mt-1 mr-3"></i>
+                            Proactive risk identification matrices and mitigation strategies to protect the branch before launch.
+                        </div>
+                    </div>
+
+                    <!-- Row 3 -->
+                    <div class="flex flex-col md:flex-row matrix-row">
+                        <div class="w-full md:w-1/3 p-6 pl-8 bg-gray-50 border-r border-gray-100 italic text-gray-600">
+                            "My leadership team is stuck in the weeds and we need objective, high-level guidance to break a deadlock."
+                        </div>
+                        <div class="w-full md:w-1/4 p-6 font-bold text-brand-navy flex items-center">
+                            Business Advisory Services
+                        </div>
+                        <div class="w-full md:w-5/12 p-6 pr-8 text-gray-700 flex items-start">
+                            <i class="fa-solid fa-comments text-brand-gold mt-1 mr-3"></i>
+                            Expert, unbiased facilitation and strategic consulting to drive consensus and actionable decision-making.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PILLAR 3: Analytics & Performance -->
+            <div>
+                <div class="bg-gray-100 px-8 py-4 border-l-8 border-brand-cyan flex items-center">
+                    <div class="w-10 h-10 rounded-full bg-brand-cyan text-white flex items-center justify-center mr-4 font-bold">03</div>
+                    <h2 class="text-2xl font-bold text-brand-navy">Performance & Advanced Analytics</h2>
+                </div>
+                
+                <div class="flex flex-col">
+                    <!-- Row 1 -->
+                    <div class="flex flex-col md:flex-row border-b border-gray-100 matrix-row">
+                        <div class="w-full md:w-1/3 p-6 pl-8 bg-gray-50 border-r border-gray-100 italic text-gray-600">
+                            "We have mountains of data, but I can't easily tell if we are actually winning or losing."
+                        </div>
+                        <div class="w-full md:w-1/4 p-6 font-bold text-brand-navy flex items-center">
+                            Measurement & Tracking Frameworks
+                        </div>
+                        <div class="w-full md:w-5/12 p-6 pr-8 text-gray-700 flex items-start">
+                            <i class="fa-solid fa-chart-pie text-brand-cyan mt-1 mr-3"></i>
+                            Customized KPIs and metrics that track outcomes, not just outputs, giving you a clear picture of success.
+                        </div>
+                    </div>
+
+                    <!-- Row 2 -->
+                    <div class="flex flex-col md:flex-row border-b border-gray-100 matrix-row">
+                        <div class="w-full md:w-1/3 p-6 pl-8 bg-gray-50 border-r border-gray-100 italic text-gray-600">
+                            "I need to prove the ROI of our branch to the Deputy Head, but I don't have the hard numbers."
+                        </div>
+                        <div class="w-full md:w-1/4 p-6 font-bold text-brand-navy flex items-center">
+                            Advanced Analytics & Reporting
+                        </div>
+                        <div class="w-full md:w-5/12 p-6 pr-8 text-gray-700 flex items-start">
+                            <i class="fa-solid fa-file-invoice-dollar text-brand-cyan mt-1 mr-3"></i>
+                            Deep-dive analytical reports (like the EFRS Cost of Service Study) that provide bulletproof quantitative evidence.
+                        </div>
+                    </div>
+
+                    <!-- Row 3 -->
+                    <div class="flex flex-col md:flex-row matrix-row">
+                        <div class="w-full md:w-1/3 p-6 pl-8 bg-gray-50 border-r border-gray-100 italic text-gray-600">
+                            "We are relying on gut-feeling to predict future service demand."
+                        </div>
+                        <div class="w-full md:w-1/4 p-6 font-bold text-brand-navy flex items-center">
+                            Predictive Modeling
+                        </div>
+                        <div class="w-full md:w-5/12 p-6 pr-8 text-gray-700 flex items-start">
+                            <i class="fa-solid fa-lightbulb text-brand-cyan mt-1 mr-3"></i>
+                            Data-driven foresight that allows you to shift from reactive firefighting to proactive resource allocation.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- FOOTER SECTION -->
+        <footer class="bg-brand-navy text-white p-8 mt-auto flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+            <div>
+                <h3 class="font-bold text-brand-gold uppercase tracking-wider mb-1">The New Way We Work: Leadership Triage</h3>
+                <p class="text-gray-300 text-sm max-w-2xl">
+                    Bring the challenge. We build the solution. Work comes through a single central intake, and our leadership deploys the exact mix of analysts, strategists, and advisors required.
+                </p>
+            </div>
+            <div class="mt-4 md:mt-0">
+                <span class="inline-block bg-brand-cyan text-brand-navy font-bold px-6 py-2 rounded-full text-sm shadow-md">
+                    No academic theories. Just deployable expertise.
+                </span>
+            </div>
+        </footer>
+
+    </div>
+</body>
+</html>
