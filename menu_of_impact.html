@@ -3,10 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>One DSS | Menu of Impact</title>
+    <title>One DSS | Executive Wayfinder Placemat</title>
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <script>
         tailwind.config = {
@@ -14,39 +17,39 @@
                 extend: {
                     colors: {
                         brand: {
-                            navy: '#0B1F3F',
-                            gold: '#D4AF37',
-                            cyan: '#00A4B4',
-                            slate: '#334155',
-                            light: '#F8FAFC'
+                            navy: '#0B1F3F',     // Deep Corporate Navy
+                            gold: '#D4AF37',     // Premium Gold
+                            cyan: '#00A4B4',     // Modern Cyan
+                            slate: '#334155',    // Dark Gray Text
+                            light: '#F8FAFC'     // Light background
                         }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
                     }
                 }
             }
         }
     </script>
-    <style>
-        body {
-            background-color: #e2e8f0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 2rem;
-        }
-        /* Fixed container - removed aspect ratio to prevent content chopping */
-        .placemat-container {
-            width: 100%;
-            max-width: 1500px;
-            background-color: white;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-            position: relative;
-        }
-    </style>
 </head>
+<body class="antialiased text-brand-slate bg-slate-200 min-h-screen font-sans flex flex-col">
+
+    <!-- UNIVERSAL NAVIGATION HEADER -->
+    <nav class="bg-brand-navy shadow-md text-white sticky top-0 z-50 w-full border-b border-gray-700">
+        <div class="max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-center justify-between py-3 md:h-16 gap-3 md:gap-0">
+                <div class="flex items-center flex-shrink-0">
+                    <span class="font-bold text-xl tracking-wider text-brand-gold"><i class="fa-solid fa-compass mr-2"></i>ONE DSS</span>
+                </div>
+                <div class="flex flex-wrap items-baseline gap-2 text-sm">
+                    <a href="index.html" class="hover:bg-brand-cyan hover:text-white px-3 py-2 rounded-md font-medium transition text-gray-300">Home</a>
+                    <a href="executive_wayfinder.html" class="bg-brand-cyan text-white px-3 py-2 rounded-md font-medium transition text-gray-300">Page 1: Wayfinder</a>
+                    <a href="menu_of_impact.html" class="hover:bg-brand-cyan hover:text-white px-3 py-2 rounded-md font-medium shadow-sm pointer-events-none">Page 2: Menu</a>
+                    <a href="pitch_deck.html" class="hover:bg-brand-cyan hover:text-white px-3 py-2 rounded-md font-medium transition text-gray-300">Page 3: Pitch Deck</a>
+                </div>
+            </div>
+        </div>
+    </nav>
 <body class="antialiased text-brand-slate">
 
     <div class="placemat-container rounded-xl border border-gray-300">
