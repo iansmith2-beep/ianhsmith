@@ -853,59 +853,40 @@
             }
         }
     </script>
-    <style>
-  .output-container {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    margin: 40px auto;
-    flex-wrap: wrap;
-    font-family: sans-serif;
-  }
-  .output-box {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 24px;
-    width: 280px;
-    text-align: center;
-    text-decoration: none;
-    color: #333;
-    background-color: #ffffff;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-  .output-box:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-    border-color: #007bff;
-  }
-  .output-box h3 {
-    margin-top: 0;
-    color: #007bff;
-    font-size: 1.2rem;
-  }
-  .output-box p {
-    font-size: 1rem;
-    line-height: 1.4;
-    margin-bottom: 0;
-  }
-</style>
+<!-- OUTPUT LINKS SECTION (Add to index.html) -->
+<section class="py-16 bg-gray-50 border-t border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl font-extrabold text-brand-navy mb-8 text-center uppercase tracking-wide">Strategic Prototypes</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Box 1: Wayfinder Placemat -->
+            <a href="executive_wayfinder.html" class="block group bg-white p-6 rounded-xl shadow-md border-t-4 border-brand-navy hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                <h3 class="text-xl font-bold text-gray-900 group-hover:text-brand-navy transition-colors mb-2">Output 1: Executive Wayfinder</h3>
+                <p class="text-sm text-gray-500">A 1-page high-impact placemat summarizing the One DSS value proposition.</p>
+                <div class="mt-4 text-brand-navy text-sm font-bold flex items-center">
+                    View Prototype <i class="fa-solid fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i>
+                </div>
+            </a>
 
-<div class="output-container">
-  <a href="wayfinder.html" class="output-box">
-    <h3>Output 1</h3>
-    <p>The "Executive Wayfinder" Placemat</p>
-  </a>
+            <!-- Box 2: Menu of Impact -->
+            <a href="menu_of_impact.html" class="block group bg-white p-6 rounded-xl shadow-md border-t-4 border-brand-gold hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                <h3 class="text-xl font-bold text-gray-900 group-hover:text-brand-gold transition-colors mb-2">Output 2: Menu of Impact</h3>
+                <p class="text-sm text-gray-500">A problem/solution matrix translating branch headaches into DSS deliverables.</p>
+                <div class="mt-4 text-brand-gold text-sm font-bold flex items-center">
+                    View Prototype <i class="fa-solid fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i>
+                </div>
+            </a>
 
-  <a href="menu.html" class="output-box">
-    <h3>Output 2</h3>
-    <p>The "Menu of Impact" Problem/Solution Matrix</p>
-  </a>
-
-  <a href="pitch-deck.html" class="output-box">
-    <h3>Output 3</h3>
-    <p>The "One DSS" Leadership Pitch Deck</p>
-  </a>
-</div>
+            <!-- Box 3: Pitch Deck -->
+            <a href="pitch_deck.html" class="block group bg-white p-6 rounded-xl shadow-md border-t-4 border-brand-cyan hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                <h3 class="text-xl font-bold text-gray-900 group-hover:text-brand-cyan transition-colors mb-2">Output 3: Leadership Pitch Deck</h3>
+                <p class="text-sm text-gray-500">A 5-7 slide presentation deck for roadshows and executive meetings.</p>
+                <div class="mt-4 text-brand-cyan text-sm font-bold flex items-center">
+                    View Prototype <i class="fa-solid fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
 </body>
 </html>
