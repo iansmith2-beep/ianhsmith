@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One DSS | Leadership Pitch Deck</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            navy: '#0B1F3F',
+                            gold: '#D4AF37',
+                            cyan: '#00A4B4',
+                            slate: '#334155',
+                            light: '#F8FAFC'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #e2e8f0; /* Darker backdrop to make slides pop */
+            padding: 2rem 1rem;
+        }
+        /* Digital Slide Canvas - Forces a 16:9 widescreen ratio for presentation feel */
+        .slide-canvas {
+            width: 100%;
+            max-width: 1100px;
+            aspect-ratio: 16 / 9;
+            margin: 0 auto 4rem auto;
+            background-color: white;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            border-radius: 0.75rem;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+        @media (max-width: 1024px) {
+            .slide-canvas {
+                aspect-ratio: auto;
+                min-height: 600px;
+            }
+        }
+        /* Subtle grid pattern for textured backgrounds */
+        .bg-pattern {
+            background-image: radial-gradient(#00A4B4 1px, transparent 1px);
+            background-size: 30px 30px;
+            opacity: 0.05;
+        }
+    </style>
+</head>
+<body class="antialiased text-brand-slate font-sans selection:bg-brand-cyan selection:text-white">
+
+    <div class="max-w-7xl mx-auto mb-12 text-center">
+        <h1 class="text-xl font-bold text-gray-500 uppercase tracking-widest mb-2">Presentation Prototype</h1>
+        <p class="text-gray-400 text-sm">Scroll down to preview the 7-slide "One DSS" leadership roadshow deck.</p>
+    </div>
+
+    <!-- SLIDE 1: TITLE SLIDE -->
+    <div class="slide-canvas bg-brand-navy text-white justify-center items-center relative group border border-gray-700">
+        <div class="absolute inset-0 bg-pattern"></div>
+        <div class="relative z-10 text-center px-10">
+            <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-brand-navy border-2 border-brand-gold mb-8 shadow-[0_0_30px_rgba(212,175,55,0.3)]">
+                <i class="fa-solid fa-compass text-3xl text-brand-gold"></i>
+            </div>
+            <h1 class="text-6xl md:text-8xl font-black tracking-tight mb-6">ONE DSS</h1>
+            <div class="w-24 h-1.5 bg-brand-cyan mx-auto mb-6"></div>
+            <p class="text-2xl md:text-4xl font-light text-gray-300">Your Embedded Strategic Partner.</p>
+        </div>
+        <div class="absolute bottom-6 left-8 text-sm font-bold tracking-widest text-gray-500 uppercase">Slide 01</div>
+    </div>
+
+    <!-- SLIDE 2: THE CORE CHALLENGE -->
+    <div class="slide-canvas border border-gray-200">
+        <div class="px-12 py-10 border-b border-gray-100 flex justify-between items-center">
+            <h2 class="text-3xl font-extrabold text-brand-navy uppercase tracking-wide">The Core Challenge</h2>
+            <i class="fa-solid fa-triangle-exclamation text-brand-gold text-3xl opacity-50"></i>
+        </div>
+        <div class="flex-grow flex flex-col md:flex-row p-12 gap-12 items-center">
+            <div class="w-full md:w-1/2 space-y-8 text-xl text-gray-600 leading-relaxed">
+                <p>The municipal landscape is too complex for end-of-pipe compliance.</p>
+                <p>As leaders, you are facing constrained budgets, massive mandates, and tangled service issues.</p>
+                <div class="bg-gray-50 border-l-4 border-brand-navy p-6 rounded-r-lg">
+                    <p class="font-bold text-brand-navy m-0">Checklists don't solve messy problems. Strategy does.</p>
+                </div>
+            </div>
+            <div class="w-full md:w-1/2 flex justify-center items-center relative">
+                <!-- Visualizing the mess -->
+                <div class="relative w-64 h-64 bg-brand-light rounded-full flex justify-center items-center border border-gray-200">
+                    <i class="fa-solid fa-clipboard-check text-8xl text-gray-300 absolute transform -rotate-12 transition-transform duration-500 hover:rotate-0"></i>
+                    <i class="fa-solid fa-ban text-9xl text-red-400/80 absolute"></i>
+                </div>
+            </div>
+        </div>
+        <div class="absolute bottom-6 left-12 text-sm font-bold tracking-widest text-gray-400 uppercase">Slide 02</div>
+    </div>
+
+    <!-- SLIDE 3: THE PARADIGM SHIFT -->
+    <div class="slide-canvas border border-gray-200 bg-brand-light">
+        <div class="px-12 py-10 border-b border-gray-200 flex justify-between items-center bg-white">
+            <h2 class="text-3xl font-extrabold text-brand-navy uppercase tracking-wide">The Paradigm Shift</h2>
+            <i class="fa-solid fa-arrow-right-arrow-left text-brand-cyan text-3xl opacity-50"></i>
+        </div>
+        <div class="flex-grow p-12 flex flex-col justify-center gap-6">
+            <!-- Row 1 -->
+            <div class="flex items-center gap-6">
+                <div class="flex-1 bg-white p-6 rounded-xl shadow-sm border border-gray-200 text-center">
+                    <p class="text-lg text-gray-500 font-semibold uppercase">From</p>
+                    <p class="text-2xl font-bold text-gray-800 mt-2">Outsiders & Enforcers</p>
+                </div>
+                <i class="fa-solid fa-arrow-right text-3xl text-brand-cyan"></i>
+                <div class="flex-1 bg-brand-navy p-6 rounded-xl shadow-md text-center">
+                    <p class="text-lg text-brand-cyan font-semibold uppercase">To</p>
+                    <p class="text-2xl font-bold text-white mt-2">Embedded Wayfinders</p>
+                </div>
+            </div>
+            <!-- Row 2 -->
+            <div class="flex items-center gap-6">
+                <div class="flex-1 bg-white p-6 rounded-xl shadow-sm border border-gray-200 text-center">
+                    <p class="text-lg text-gray-500 font-semibold uppercase">From</p>
+                    <p class="text-2xl font-bold text-gray-800 mt-2">Siloed Teams (SER & BPP)</p>
+                </div>
+                <i class="fa-solid fa-arrow-right text-3xl text-brand-cyan"></i>
+                <div class="flex-1 bg-brand-navy p-6 rounded-xl shadow-md text-center">
+                    <p class="text-lg text-brand-cyan font-semibold uppercase">To</p>
+                    <p class="text-2xl font-bold text-white mt-2">One Unified DSS</p>
+                </div>
+            </div>
+            <!-- Row 3 -->
+            <div class="flex items-center gap-6">
+                <div class="flex-1 bg-white p-6 rounded-xl shadow-sm border border-gray-200 text-center">
+                    <p class="text-lg text-gray-500 font-semibold uppercase">From</p>
+                    <p class="text-2xl font-bold text-gray-800 mt-2">Academic Exercises</p>
+                </div>
+                <i class="fa-solid fa-arrow-right text-3xl text-brand-cyan"></i>
+                <div class="flex-1 bg-brand-navy p-6 rounded-xl shadow-md text-center">
+                    <p class="text-lg text-brand-gold font-semibold uppercase">To</p>
+                    <p class="text-2xl font-bold text-white mt-2">Practical Problem Solving</p>
+                </div>
+            </div>
+        </div>
+        <div class="absolute bottom-6 left-12 text-sm font-bold tracking-widest text-gray-400 uppercase">Slide 03</div>
+    </div>
+
+    <!-- SLIDE 4: VALUE ENGINES -->
+    <div class="slide-canvas border border-gray-200">
+        <div class="px-12 py-10 border-b border-gray-100 flex justify-between items-center">
+            <h2 class="text-3xl font-extrabold text-brand-navy uppercase tracking-wide">Our Value Engines</h2>
+            <i class="fa-solid fa-gears text-brand-navy text-3xl opacity-50"></i>
+        </div>
+        <div class="flex-grow p-12 grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+            
+            <div class="bg-gray-50 p-8 rounded-xl border-t-4 border-brand-navy h-full flex flex-col">
+                <i class="fa-solid fa-chess-knight text-5xl text-brand-navy mb-6"></i>
+                <h3 class="text-2xl font-bold text-gray-900 mb-4">Strategic Planning</h3>
+                <p class="text-gray-600 text-lg flex-grow">Defining direction. Aligning your budget, policy, and mandate to ensure resources flow exactly where they create impact.</p>
+            </div>
+
+            <div class="bg-gray-50 p-8 rounded-xl border-t-4 border-brand-gold h-full flex flex-col transform md:-translate-y-4 shadow-lg">
+                <i class="fa-solid fa-users-gear text-5xl text-brand-gold mb-6"></i>
+                <h3 class="text-2xl font-bold text-gray-900 mb-4">Service Improvement</h3>
+                <p class="text-gray-600 text-lg flex-grow">Redesigning reality. Providing objective, end-to-end service reviews and mitigating operational risks.</p>
+            </div>
+
+            <div class="bg-gray-50 p-8 rounded-xl border-t-4 border-brand-cyan h-full flex flex-col">
+                <i class="fa-solid fa-chart-line text-5xl text-brand-cyan mb-6"></i>
+                <h3 class="text-2xl font-bold text-gray-900 mb-4">Performance Analytics</h3>
+                <p class="text-gray-600 text-lg flex-grow">Illuminating the dark. Turning raw data into bulletproof ROI and actionable executive insights.</p>
+            </div>
+
+        </div>
+        <div class="absolute bottom-6 left-12 text-sm font-bold tracking-widest text-gray-400 uppercase">Slide 04</div>
+    </div>
+
+    <!-- SLIDE 5: PROOF OF IMPACT -->
+    <div class="slide-canvas border border-gray-200">
+        <div class="px-12 py-10 border-b border-gray-100 flex justify-between items-center">
+            <h2 class="text-3xl font-extrabold text-brand-navy uppercase tracking-wide">Proof of Impact</h2>
+            <i class="fa-solid fa-award text-brand-gold text-3xl opacity-80"></i>
+        </div>
+        <div class="flex-grow p-12 flex flex-col justify-center gap-8">
+            
+            <div class="flex items-start bg-white border border-gray-200 shadow-sm p-8 rounded-xl relative overflow-hidden">
+                <div class="absolute left-0 top-0 bottom-0 w-2 bg-brand-gold"></div>
+                <div class="mr-8 bg-yellow-50 p-4 rounded-full">
+                    <i class="fa-solid fa-file-invoice-dollar text-4xl text-brand-gold"></i>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold text-brand-navy mb-3">The EFRS Cost of Service Study</h3>
+                    <p class="text-xl text-gray-600 leading-relaxed">Delivered robust, defensible financial and operational analysis that provided the evidence base to secure critical resourcing decisions.</p>
+                </div>
+            </div>
+
+            <div class="flex items-start bg-white border border-gray-200 shadow-sm p-8 rounded-xl relative overflow-hidden">
+                <div class="absolute left-0 top-0 bottom-0 w-2 bg-brand-cyan"></div>
+                <div class="mr-8 bg-cyan-50 p-4 rounded-full">
+                    <i class="fa-solid fa-layer-group text-4xl text-brand-cyan"></i>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold text-brand-navy mb-3">Integrated Strategic Frameworks</h3>
+                    <p class="text-xl text-gray-600 leading-relaxed">Currently transforming executive quarterly conversations by tying risk, budget, and performance metrics into one cohesive narrative.</p>
+                </div>
+            </div>
+
+        </div>
+        <div class="absolute bottom-6 left-12 text-sm font-bold tracking-widest text-gray-400 uppercase">Slide 05</div>
+    </div>
+
+    <!-- SLIDE 6: LEADERSHIP TRIAGE -->
+    <div class="slide-canvas border border-gray-200 bg-brand-light">
+        <div class="px-12 py-10 border-b border-gray-200 flex justify-between items-center bg-white">
+            <h2 class="text-3xl font-extrabold text-brand-navy uppercase tracking-wide">Engagement: Leadership Triage</h2>
+            <i class="fa-solid fa-route text-brand-cyan text-3xl opacity-80"></i>
+        </div>
+        <div class="flex-grow p-12 relative flex items-center justify-center">
+            <!-- Connecting Line -->
+            <div class="absolute top-1/2 left-24 right-24 h-1 bg-gray-300 -translate-y-1/2 z-0 hidden md:block"></div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 relative z-10 w-full">
+                
+                <!-- Step 1 -->
+                <div class="bg-white p-8 rounded-xl shadow-md border border-gray-100 text-center">
+                    <div class="w-16 h-16 mx-auto bg-brand-navy text-white rounded-full flex items-center justify-center text-2xl font-bold mb-6 border-4 border-white shadow-sm">1</div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">The Messy Problem</h3>
+                    <p class="text-gray-600">Bring us the mess. Identify a complex challenge at the onset without worrying about silos.</p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="bg-white p-8 rounded-xl shadow-md border border-gray-100 text-center transform md:-translate-y-6">
+                    <div class="w-16 h-16 mx-auto bg-brand-gold text-white rounded-full flex items-center justify-center text-2xl font-bold mb-6 border-4 border-white shadow-sm">2</div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Strategic Scoping</h3>
+                    <p class="text-gray-600">Our leadership triages the request through central intake and frames the strategic approach.</p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="bg-white p-8 rounded-xl shadow-md border border-gray-100 text-center">
+                    <div class="w-16 h-16 mx-auto bg-brand-cyan text-white rounded-full flex items-center justify-center text-2xl font-bold mb-6 border-4 border-white shadow-sm">3</div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Deployed Expertise</h3>
+                    <p class="text-gray-600">We assign a custom, cross-functional team focused entirely on practical, actionable outcomes.</p>
+                </div>
+
+            </div>
+        </div>
+        <div class="absolute bottom-6 left-12 text-sm font-bold tracking-widest text-gray-400 uppercase">Slide 06</div>
+    </div>
+
+    <!-- SLIDE 7: THE ASK -->
+    <div class="slide-canvas bg-brand-navy text-white border border-gray-700">
+        <div class="flex-grow flex flex-col md:flex-row h-full">
+            <div class="w-full md:w-3/5 p-16 flex flex-col justify-center relative">
+                <div class="absolute inset-0 bg-pattern"></div>
+                <div class="relative z-10">
+                    <h2 class="text-5xl font-black text-white uppercase tracking-tight mb-8 border-l-8 border-brand-gold pl-6">Bring us in at <span class="text-brand-cyan">Day One.</span></h2>
+                    <p class="text-2xl font-light text-gray-300 mb-6 leading-relaxed">
+                        Don't wait until the end of your next major initiative to call us.
+                    </p>
+                    <p class="text-2xl font-light text-gray-300 leading-relaxed mb-12">
+                        Invite us to your next leadership table. Let us help you map the way forward.
+                    </p>
+                    <div class="bg-white/10 p-6 rounded-lg backdrop-blur-sm border border-white/20 inline-block">
+                        <p class="text-brand-gold font-bold uppercase tracking-wider text-sm mb-1">Let's Talk Strategy</p>
+                        <p class="text-xl font-medium"><i class="fa-solid fa-envelope mr-3 text-brand-cyan"></i> DSS.Leadership@edmonton.ca</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Image placeholder / Graphic Area -->
+            <div class="w-full md:w-2/5 bg-gray-900 relative overflow-hidden flex items-center justify-center">
+                <div class="absolute inset-0 opacity-40 bg-[url('https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2940&auto=format&fit=crop')] bg-cover bg-center mix-blend-overlay"></div>
+                <i class="fa-solid fa-lightbulb text-9xl text-brand-gold opacity-80 relative z-10 drop-shadow-2xl"></i>
+            </div>
+        </div>
+        <div class="absolute bottom-6 left-16 text-sm font-bold tracking-widest text-gray-500 uppercase z-20">Slide 07</div>
+    </div>
+
+</body>
+</html>
+```
