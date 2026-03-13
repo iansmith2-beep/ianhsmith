@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Enabler DSS: Consolidated Service Menu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+/* 1. THE SETUP */
+* {
+  box-sizing: border-box;
+}
+
+p {
+  margin: 0;
+  margin-bottom: 15px;
+}
+
+body {
+  background-color: #f1f5f9;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr;
+  margin: 0;
+  min-height: 100vh;
+  padding: 20px 0;
+  place-items: center;
+}
+
+.slide-container {
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  font-family: 'Lato', sans-serif;
+  height: 720px;
+  justify-content: center;
+  overflow: hidden;
+  padding: 60px;
+  position: relative;
+  width: 1280px;
+  border: 1px solid #e2e8f0;
+}
+
+.slide-container::before {
+  content: '';
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 0;
+}
+
+.slide-container > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* 2. CONSISTENT TYPOGRAPHY */
+.slide-container h1,
+.slide-container h2,
+.slide-container h3 {
+  color: #0f172a;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+}
+
+.slide-container p,
+.slide-container li,
+.slide-container .subtitle,
+.slide-container th,
+.slide-container td,
+.slide-container .bleed-text-side p {
+  color: #475569;
+  font-family: 'Lato', sans-serif;
+}
+
+.slide-container h1 {
+  font-size: 70px;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.slide-container .slide-title {
+  font-size: 40px;
+  font-weight: 600;
+  margin-bottom: 40px;
+  text-align: left;
+  width: 100%;
+  color: #0f172a;
+}
+
+.slide-container h3 {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #1e293b;
+}
+
+.slide-container p,
+.slide-container li,
+.slide-container th,
+.slide-container td,
+.slide-container .bleed-text-side p {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.slide-container .subtitle {
+  font-size: 24px;
+  font-weight: 400;
+  margin: 0 auto;
+  color: #334155;
+  max-width: 800px;
+}
+
+.slide-container .content-area {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+/* 3. LAYOUT DEFINITIONS */
+.title-layout {
+  text-align: center;
+}
+
+.title-layout .department-badge {
+  display: inline-block;
+  background-color: #eff6ff;
+  color: #2563eb;
+  font-weight: 700;
+  font-size: 16px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.two-column {
+  align-items: flex-start;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  width: 100%;
+}
+
+.two-column.tiled {
+  align-items: stretch;
+}
+
+.two-column.tiled > div {
+  background-color: #f8fafc;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  padding: 40px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+
+.two-column.tiled h3 {
+  color: #2563eb;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+.two-column ul {
+  list-style: disc;
+  margin: 0;
+  padding-left: 25px;
+}
+
+.two-column li {
+  margin-bottom: 15px;
+}
+
+.image-wrapper {
+  border-radius: 12px;
+  height: 400px;
+  max-width: 100%;
+  overflow: hidden;
+  width: 100%;
+  border: 1px solid #e2e8f0;
+}
+
+.image-wrapper img {
+  height: 100%;
+  max-width: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.two-column .image-wrapper img {
+  object-fit: cover;
+}
+
+.tiled-content {
+  align-items: stretch;
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  width: 100%;
+}
+
+.tile {
+  align-items: center;
+  background-color: #f8fafc;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: flex-start;
+  padding: 40px 30px;
+  text-align: center;
+}
+
+.tile .icon {
+  color: #2563eb;
+  font-size: 48px;
+  margin-bottom: 25px;
+}
+
+.tile h3 {
+  font-size: 24px;
+}
+
+.bullet-list {
+  max-width: 1000px;
+  width: 100%;
+  align-self: center;
+}
+
+.bullet-list ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.bullet-list li {
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  padding: 20px 20px 20px 60px;
+  position: relative;
+}
+
+.bullet-list i {
+  color: #2563eb;
+  font-size: 24px;
+  left: 20px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.bullet-list li strong {
+  color: #0f172a;
+  font-weight: 700;
+  display: block;
+  font-size: 20px;
+  margin-bottom: 5px;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Section Title */
+.section-title-layout {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+}
+
+.section-title-layout h2 {
+  font-size: 60px;
+  margin-bottom: 20px;
+  color: #0f172a;
+}
+
+.section-title-layout p {
+  font-size: 24px;
+  margin: 0 auto;
+  max-width: 700px;
+}
+
+.section-title-layout hr {
+  background-color: #2563eb;
+  border: none;
+  height: 6px;
+  margin: 30px auto;
+  width: 80px;
+  border-radius: 3px;
+}
+
+/* Table Layout */
+.table-layout {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+}
+
+.table-layout table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.table-layout th,
+.table-layout td {
+  border-bottom: 1px solid #e2e8f0;
+  padding: 20px 24px;
+  text-align: left;
+}
+
+.table-layout th {
+  background-color: #f8fafc;
+  color: #0f172a;
+  font-size: 18px;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  border-bottom: 2px solid #cbd5e1;
+}
+
+.table-layout tr:last-child td {
+  border-bottom: none;
+}
+
+.table-layout td.solution {
+  font-weight: 700;
+  color: #334155;
+}
+
+.table-layout td.pillar-badge span {
+  background-color: #eff6ff;
+  color: #2563eb;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* Timeline Layout */
+.timeline-layout {
+  align-items: stretch;
+  display: flex;
+  height: stretch;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+  margin-top: 40px;
+}
+
+.timeline-layout .timeline-line {
+  background-color: #cbd5e1;
+  height: 4px;
+  left: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-2px);
+  width: 100%;
+  z-index: 0;
+}
+
+.timeline-item {
+  position: relative;
+  text-align: center;
+  width: 23%;
+}
+
+.timeline-item::after {
+  background-color: #fff;
+  border-radius: 50%;
+  border: 4px solid #2563eb;
+  content: '';
+  height: 24px;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 24px;
+  z-index: 1;
+}
+
+.timeline-item .content-wrapper {
+  left: 0;
+  position: absolute;
+  width: 100%;
+  background-color: #f8fafc;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+}
+
+.timeline-item:nth-child(odd) .content-wrapper {
+  bottom: 50%;
+  margin-bottom: 35px;
+}
+
+.timeline-item:nth-child(even) .content-wrapper {
+  margin-top: 35px;
+  top: 50%;
+}
+
+.timeline-item h3 {
+  color: #0f172a;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.timeline-item p {
+  font-size: 16px;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Q&A Layout */
+.qa-layout {
+  margin: 0 auto;
+  text-align: center;
+  width: 100%;
+  align-self: center;
+}
+
+.qa-layout h2 {
+  font-size: 80px;
+  margin-bottom: 20px;
+  color: #0f172a;
+}
+
+.qa-layout p {
+  font-size: 24px;
+  color: #475569;
+}
+
+.qa-layout .contact-info {
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  color: #0f172a;
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: 40px;
+  padding: 20px;
+  display: inline-block;
+}
+
+/* Bleed_Image_Right layout */
+.slide-container.bleed-image-layout {
+  align-items: start;
+  display: grid;
+  gap: 50px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  padding: 0;
+}
+
+.slide-container.bleed-image-layout > .content-container {
+  padding: 60px 0 60px 60px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+}
+
+.slide-container.bleed-image-layout > .image-container {
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
+}
+
+.slide-container.bleed-image-layout img.bleed-image-side {
+  display: block;
+  height: 720px;
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+}
+
+.slide-container.bleed-image-layout .bleed-text-side p {
+  color: #475569;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+.slide-container.bleed-image-layout .slide-title {
+  margin-bottom: 30px;
+}
+    </style>
+</head>
+<body>
+
+
+<div class="slide-container" id="slide1">
+    <div class="title-layout">
+        <span class="department-badge">Department Strategy</span>
+        <h1>The Enabler DSS</h1>
+        <p class="subtitle">Sense-Makers. Wayfinders. Strategic Partners.</p>
+    </div>
+</div>
+
+
+<div class="slide-container bleed-image-layout" id="slide2">
+    <div class="content-container">
+        <h2 class="slide-title">The Paradigm Shift</h2>
+        <div class="content-area">
+            <div class="bleed-text-side">
+                <p><strong>You drive the vehicle. We tune the engine.</strong></p>
+                <p>Historically, corporate advisory teams operated as outsiders—arriving at the end of a project to enforce checklists. That era is over. We have united SER and BPP into <strong>The Enabler DSS</strong>.</p>
+                <p>Your branch operations (HR, Finance, IT) are the machinery that enables the city to function. Our work—strategy, policy, risk mitigation, and performance analytics—is the power and direction behind your enabling services.</p>
+            </div>
+        </div>
+    </div>
+    <div class="image-container">
+        <img class="bleed-image-side" src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2940&auto=format&fit=crop" alt="Modern corporate office team collaborating on a strategic plan">
+    </div>
+</div>
+
+
+<div class="slide-container" id="slide3">
+    <h2 class="slide-title">Our Shared Core Principles</h2>
+    <div class="content-area">
+        <div class="bullet-list">
+            <ul>
+                <li>
+                    <i class="fa-solid fa-compass"></i>
+                    <strong>Strategic Alignment</strong>
+                    Ensuring service initiatives and improvements explicitly align with corporate strategy, mandates, and service review processes.
+                </li>
+                <li>
+                    <i class="fa-solid fa-users"></i>
+                    <strong>Customer Centricity</strong>
+                    Applying a deep customer service lens to enable services to be designed and delivered with the needs of the clients at the forefront.
+                </li>
+                <li>
+                    <i class="fa-solid fa-chart-line"></i>
+                    <strong>Financial Sustainability</strong>
+                    Executing rigorous financial and operational analysis to ensure long-term stability and viability of branch services.
+                </li>
+                <li>
+                    <i class="fa-solid fa-database"></i>
+                    <strong>Data Integrity & Consistency</strong>
+                    Ensuring strict standards and priorities for data integrity, consolidation, and methodology development are consistently met.
+                </li>
+                <li>
+                    <i class="fa-solid fa-handshake"></i>
+                    <strong>Collaborative Partnerships</strong>
+                    Applying a trust-based relationship for shared success to enable collaborative communication, mutual contributions, and joint accountability.
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<div class="slide-container" id="slide4">
+    <div class="section-title-layout">
+        <hr>
+        <h2>The Three Pillars of Value</h2>
+        <p>Governance. Advisory. Measurement. We deploy integrated planning, service design, and advanced analytics to solve your most complex problems.</p>
+    </div>
+</div>
+
+
+<div class="slide-container" id="slide5">
+    <h2 class="slide-title">01. Governance</h2>
+    <div class="content-area">
+        <div class="two-column tiled">
+            <div>
+                <h3>Defining Direction</h3>
+                <p>We align business planning, policy, and budget to ensure resources flow exactly where they create the most impact.</p>
+            </div>
+            <div>
+                <h3>Core Services</h3>
+                <ul>
+                    <li>Strategic Alignment</li>
+                    <li>Policy Design & Rescind Reviews</li>
+                    <li>Budget Narrative Support</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="slide-container" id="slide6">
+    <h2 class="slide-title">02. Advisory</h2>
+    <div class="content-area">
+        <div class="two-column tiled">
+            <div>
+                <h3>Redesigning Reality</h3>
+                <p>We provide objective, end-to-end service reviews, mitigate operational risks, and engineer practical business solutions.</p>
+            </div>
+            <div>
+                <h3>Core Services</h3>
+                <ul>
+                    <li>End-to-End Service Reviews</li>
+                    <li>Strategic Risk Mitigation</li>
+                    <li>Business Advisory & Implementation</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="slide-container" id="slide7">
+    <h2 class="slide-title">03. Measurement</h2>
+    <div class="content-area">
+        <div class="two-column tiled">
+            <div>
+                <h3>Illuminating the Dark</h3>
+                <p>We turn raw, overwhelming data into crisp, actionable insights and executive dashboards that prove your ROI.</p>
+            </div>
+            <div>
+                <h3>Core Services</h3>
+                <ul>
+                    <li>Advanced Analytics</li>
+                    <li>KPI & Tracking Frameworks</li>
+                    <li>Results Reporting & Dashboards</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="slide-container" id="slide8">
+    <h2 class="slide-title">Leadership Triage</h2>
+    <div class="content-area">
+        <p class="subtitle" style="text-align: center; margin-bottom: 40px;">Forget navigating internal silos. Bring us the mess, we build the solution.</p>
+        <div class="tiled-content">
+            <div class="tile">
+                <div class="icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                <h3>1. The Messy Problem</h3>
+                <p>You identify a complex challenge at the onset—budget friction, service gaps, or risk blind spots.</p>
+            </div>
+            <div class="tile">
+                <div class="icon"><i class="fa-solid fa-comments"></i></div>
+                <h3>2. Central Scoping</h3>
+                <p>Our leadership triages the request through central intake, framing the exact strategic approach required.</p>
+            </div>
+            <div class="tile">
+                <div class="icon"><i class="fa-solid fa-rocket"></i></div>
+                <h3>3. Deployed Expertise</h3>
+                <p>We assign a custom, cross-functional team focused entirely on practical, actionable outcomes.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="slide-container" id="slide9">
+    <h2 class="slide-title">The Menu of Impact</h2>
+    <div class="content-area">
+        <div class="table-layout">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 35%;">The Challenge (Pain Point)</th>
+                        <th style="width: 45%;">The DSS Solution</th>
+                        <th style="width: 20%;">Blueprint Pillar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>"My 4-year budget narrative is disjointed."</td>
+                        <td class="solution">Build a Joint Integrated Strategic Framework tying risks, budget, and metrics together.</td>
+                        <td class="pillar-badge"><span>01. Governance</span></td>
+                    </tr>
+                    <tr>
+                        <td>"Our core processes are bottlenecked."</td>
+                        <td class="solution">Conduct an End-to-End Service Redesign, mapping current state to mitigate risks.</td>
+                        <td class="pillar-badge"><span>02. Advisory</span></td>
+                    </tr>
+                    <tr>
+                        <td>"I can't easily show ROI to the Deputy Head."</td>
+                        <td class="solution">Deploy Advanced Analytics & Visualizations to create executive performance dashboards.</td>
+                        <td class="pillar-badge"><span>03. Measurement</span></td>
+                    </tr>
+                    <tr>
+                        <td>"We have a messy, undefined problem."</td>
+                        <td class="solution">Central Scoping & Triage: We act as wayfinders to define the problem and build a pod.</td>
+                        <td class="pillar-badge"><span>Triage Model</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<div class="slide-container" id="slide10">
+    <h2 class="slide-title">Deliverables & Advisory Rhythm</h2>
+    <div class="content-area">
+        <div class="timeline-layout">
+            <div class="timeline-line"></div>
+            <div class="timeline-item">
+                <div class="content-wrapper">
+                    <h3>Year 1</h3>
+                    <p>4-Year Operating & Capital Budget development. Risk & Policy Assessments. Core performance tracking.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="content-wrapper">
+                    <h3>Year 2</h3>
+                    <p>Strategic Quarterly Conversations. Targeted End-to-End Service Reviews and process optimizations.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="content-wrapper">
+                    <h3>Year 3</h3>
+                    <p>Corporate and Department Business Plan Updates. Branch Placemat refreshes. Cost Benefit Analyses.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="content-wrapper">
+                    <h3>Year 4</h3>
+                    <p>Results Reporting. Policy Rescind Reviews. Evaluation and preparation for the next 4-Year cycle.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="slide-container" id="slide11">
+    <h2 class="slide-title">Our Impact in Action</h2>
+    <div class="content-area">
+        <div class="two-column">
+            <div>
+                <ul class="bullet-list" style="padding:0; margin-top:10px;">
+                    <li style="padding: 15px 20px; border:none; background:transparent; margin-bottom:10px;">
+                        <strong>EFRS Cost of Service Study</strong>
+                        Delivered robust, defensible financial and operational analysis. This deep-dive provided the undeniable evidence base required to secure critical resourcing decisions.
+                    </li>
+                    <li style="padding: 15px 20px; border:none; background:transparent; margin-bottom:10px;">
+                        <strong>Integrated Strategic Frameworks</strong>
+                        Transformed executive quarterly conversations. Instead of disjointed updates, we now tie risk, budget, and performance metrics into one cohesive, strategic narrative.
+                    </li>
+                    <li style="padding: 15px 20px; border:none; background:transparent; margin-bottom:10px;">
+                        <strong>The "So What?" Guarantee</strong>
+                        Every DSS deliverable must answer one question: What do you do differently tomorrow because of this? If it's not actionable, it's not done.
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <div class="image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop" alt="Close up of professionals reviewing financial charts and analytics">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="slide-container" id="slide12">
+    <div class="qa-layout">
+        <h2>Bring us in at Day One.</h2>
+        <p>Your strategic advantage is already in-house. Invite us to your next leadership table.</p>
+        <div class="contact-info">
+            DSS.Leadership@edmonton.ca
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+```
