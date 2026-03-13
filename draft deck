@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Enabler DSS: Consolidated Service Menu</title>
+    <title>The Enabler DSS: Service Blueprint & Menu</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
@@ -333,10 +333,12 @@ body {
 .table-layout th {
   background-color: #f8fafc;
   color: #0f172a;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
   font-family: 'Poppins', sans-serif;
   border-bottom: 2px solid #cbd5e1;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .table-layout tr:last-child td {
@@ -345,17 +347,24 @@ body {
 
 .table-layout td.solution {
   font-weight: 700;
-  color: #334155;
+  color: #2563eb;
 }
 
-.table-layout td.pillar-badge span {
-  background-color: #eff6ff;
-  color: #2563eb;
-  padding: 6px 12px;
+.table-layout td.deliverable {
+  font-weight: 500;
+  color: #0f172a;
+}
+
+.table-layout td span.cross-functional {
+  background-color: #fef08a;
+  color: #854d0e;
+  padding: 4px 8px;
   border-radius: 4px;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
+  display: inline-block;
+  margin-bottom: 8px;
 }
 
 /* Timeline Layout */
@@ -511,21 +520,22 @@ body {
 
 <div class="slide-container" id="slide1">
     <div class="title-layout">
-        <span class="department-badge">Department Strategy</span>
+        <span class="department-badge">Department Strategy (DSS)</span>
         <h1>The Enabler DSS</h1>
-        <p class="subtitle">Sense-Makers. Wayfinders. Strategic Partners.</p>
+        <p class="subtitle">Service Blueprint & Consolidated Service Menu</p>
     </div>
 </div>
 
 
 <div class="slide-container bleed-image-layout" id="slide2">
     <div class="content-container">
-        <h2 class="slide-title">The Paradigm Shift</h2>
+        <h2 class="slide-title">Our Strategic Foundation</h2>
         <div class="content-area">
             <div class="bleed-text-side">
-                <p><strong>You drive the vehicle. We tune the engine.</strong></p>
-                <p>Historically, corporate advisory teams operated as outsiders—arriving at the end of a project to enforce checklists. That era is over. We have united SER and BPP into <strong>The Enabler DSS</strong>.</p>
-                <p>Your branch operations (HR, Finance, IT) are the machinery that enables the city to function. Our work—strategy, policy, risk mitigation, and performance analytics—is the power and direction behind your enabling services.</p>
+                <p><strong>The Paradigm Shift: From Enforcers to Partners</strong></p>
+                <p>Historically, corporate advisory teams operated as outsiders—arriving at the end of a project to enforce checklists. We are moving away from this model. We have united into an embedded strategic partnership designed to clear your path, not clutter it.</p>
+                <p><strong>The Core Metaphor: Engine & Vehicle</strong></p>
+                <p>Your branch operations and frontline delivery act as the vehicle that enables the city to function. Our team—deploying strategy, policy, risk mitigation, and analytics—operates as the engine powering that vehicle forward.</p>
             </div>
         </div>
     </div>
@@ -574,26 +584,27 @@ body {
 <div class="slide-container" id="slide4">
     <div class="section-title-layout">
         <hr>
-        <h2>The Three Pillars of Value</h2>
-        <p>Governance. Advisory. Measurement. We deploy integrated planning, service design, and advanced analytics to solve your most complex problems.</p>
+        <h2>The Three Strategic Pillars</h2>
+        <p>Strategic Planning. Service Improvement. Performance & Analytics. We deploy integrated expertise to solve your most complex problems.</p>
     </div>
 </div>
 
 
 <div class="slide-container" id="slide5">
-    <h2 class="slide-title">01. Governance</h2>
+    <h2 class="slide-title">01. Strategic Planning</h2>
     <div class="content-area">
         <div class="two-column tiled">
             <div>
                 <h3>Defining Direction</h3>
-                <p>We align business planning, policy, and budget to ensure resources flow exactly where they create the most impact.</p>
+                <p>We transform strategic framework requirements into specific, manageable deliverables, navigating complexity and translating City goals into actionable plans.</p>
             </div>
             <div>
                 <h3>Core Services</h3>
                 <ul>
-                    <li>Strategic Alignment</li>
+                    <li>Corporate & Branch Business Planning</li>
                     <li>Policy Design & Rescind Reviews</li>
-                    <li>Budget Narrative Support</li>
+                    <li>4-Year Operating & Capital Budget Support</li>
+                    <li>Risk Management & Registers</li>
                 </ul>
             </div>
         </div>
@@ -602,19 +613,20 @@ body {
 
 
 <div class="slide-container" id="slide6">
-    <h2 class="slide-title">02. Advisory</h2>
+    <h2 class="slide-title">02. Service Improvement</h2>
     <div class="content-area">
         <div class="two-column tiled">
             <div>
                 <h3>Redesigning Reality</h3>
-                <p>We provide objective, end-to-end service reviews, mitigate operational risks, and engineer practical business solutions.</p>
+                <p>We provide objective, end-to-end service reviews, engineer practical business solutions, and map workflows to eliminate operational bottlenecks.</p>
             </div>
             <div>
                 <h3>Core Services</h3>
                 <ul>
                     <li>End-to-End Service Reviews</li>
-                    <li>Strategic Risk Mitigation</li>
-                    <li>Business Advisory & Implementation</li>
+                    <li>Current State Analysis & Process Mapping</li>
+                    <li>Cost Benefit & Cost of Service Analysis</li>
+                    <li>Change Management Support</li>
                 </ul>
             </div>
         </div>
@@ -623,19 +635,20 @@ body {
 
 
 <div class="slide-container" id="slide7">
-    <h2 class="slide-title">03. Measurement</h2>
+    <h2 class="slide-title">03. Performance & Analytics</h2>
     <div class="content-area">
         <div class="two-column tiled">
             <div>
                 <h3>Illuminating the Dark</h3>
-                <p>We turn raw, overwhelming data into crisp, actionable insights and executive dashboards that prove your ROI.</p>
+                <p>We leverage data and analytics to inform decisions, turning raw information into crisp, actionable insights and executive dashboards that prove your ROI.</p>
             </div>
             <div>
                 <h3>Core Services</h3>
                 <ul>
-                    <li>Advanced Analytics</li>
-                    <li>KPI & Tracking Frameworks</li>
-                    <li>Results Reporting & Dashboards</li>
+                    <li>Advanced Data Analytics</li>
+                    <li>Measure Evaluation (SMART KPIs)</li>
+                    <li>Visualizations & Executive Reports</li>
+                    <li>Methodology Documentation</li>
                 </ul>
             </div>
         </div>
@@ -644,24 +657,24 @@ body {
 
 
 <div class="slide-container" id="slide8">
-    <h2 class="slide-title">Leadership Triage</h2>
+    <h2 class="slide-title">Engagement Model Framework</h2>
     <div class="content-area">
-        <p class="subtitle" style="text-align: center; margin-bottom: 40px;">Forget navigating internal silos. Bring us the mess, we build the solution.</p>
+        <p class="subtitle" style="text-align: center; margin-bottom: 40px;">Removing silos and providing a centralized intake process for our partners.</p>
         <div class="tiled-content">
             <div class="tile">
-                <div class="icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
-                <h3>1. The Messy Problem</h3>
-                <p>You identify a complex challenge at the onset—budget friction, service gaps, or risk blind spots.</p>
+                <div class="icon"><i class="fa-solid fa-hand-sparkles"></i></div>
+                <h3>1. Client Initiation</h3>
+                <p>Clients identify a complex operational or strategic challenge at the onset and bring us in at "Day One."</p>
             </div>
             <div class="tile">
-                <div class="icon"><i class="fa-solid fa-comments"></i></div>
-                <h3>2. Central Scoping</h3>
-                <p>Our leadership triages the request through central intake, framing the exact strategic approach required.</p>
+                <div class="icon"><i class="fa-solid fa-arrows-to-circle"></i></div>
+                <h3>2. Central Scoping & Triage</h3>
+                <p>Leadership triages the request, assesses the complexity of the problem, and frames the required approach without service silos.</p>
             </div>
             <div class="tile">
                 <div class="icon"><i class="fa-solid fa-rocket"></i></div>
                 <h3>3. Deployed Expertise</h3>
-                <p>We assign a custom, cross-functional team focused entirely on practical, actionable outcomes.</p>
+                <p>We execute by assigning a custom, cross-functional team focused entirely on producing actionable outcomes.</p>
             </div>
         </div>
     </div>
@@ -669,37 +682,37 @@ body {
 
 
 <div class="slide-container" id="slide9">
-    <h2 class="slide-title">The Menu of Impact</h2>
+    <h2 class="slide-title">The Service Catalog Blueprint</h2>
     <div class="content-area">
         <div class="table-layout">
             <table>
                 <thead>
                     <tr>
-                        <th style="width: 35%;">The Challenge (Pain Point)</th>
-                        <th style="width: 45%;">The DSS Solution</th>
-                        <th style="width: 20%;">Blueprint Pillar</th>
+                        <th style="width: 35%;">Client Problem</th>
+                        <th style="width: 25%;">DSS Solution</th>
+                        <th style="width: 40%;">Final Deliverable</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>"My 4-year budget narrative is disjointed."</td>
-                        <td class="solution">Build a Joint Integrated Strategic Framework tying risks, budget, and metrics together.</td>
-                        <td class="pillar-badge"><span>01. Governance</span></td>
+                        <td>"A new leadership mandate has misaligned our budget and delivery."</td>
+                        <td class="solution">Strategic Alignment & Business Planning</td>
+                        <td class="deliverable">A cohesive Business Plan connecting operational realities with new corporate directives.</td>
                     </tr>
                     <tr>
-                        <td>"Our core processes are bottlenecked."</td>
-                        <td class="solution">Conduct an End-to-End Service Redesign, mapping current state to mitigate risks.</td>
-                        <td class="pillar-badge"><span>02. Advisory</span></td>
+                        <td>"A critical internal service is messy, and we don't know where to start."</td>
+                        <td class="solution">End-to-End Service Reviews</td>
+                        <td class="deliverable">A comprehensive diagnostic of pain points backed by a prioritized roadmap.</td>
                     </tr>
                     <tr>
-                        <td>"I can't easily show ROI to the Deputy Head."</td>
-                        <td class="solution">Deploy Advanced Analytics & Visualizations to create executive performance dashboards.</td>
-                        <td class="pillar-badge"><span>03. Measurement</span></td>
+                        <td>"We have mountains of data but struggle to tell our value story."</td>
+                        <td class="solution">Measurement Frameworks</td>
+                        <td class="deliverable">Customized KPIs tracking actual outcomes, not just outputs.</td>
                     </tr>
                     <tr>
-                        <td>"We have a messy, undefined problem."</td>
-                        <td class="solution">Central Scoping & Triage: We act as wayfinders to define the problem and build a pod.</td>
-                        <td class="pillar-badge"><span>Triage Model</span></td>
+                        <td>"We are launching a new delivery model and need to update red-tape policy while navigating operational trade-offs."</td>
+                        <td class="solution"><span class="cross-functional">Cross-Functional</span><br>Integrated Policy & Risk Strategy</td>
+                        <td class="deliverable">Modern, enforceable policy frameworks combined with proactive risk mitigation strategies for a safe launch.</td>
                     </tr>
                 </tbody>
             </table>
@@ -743,18 +756,18 @@ body {
 
 
 <div class="slide-container" id="slide11">
-    <h2 class="slide-title">Our Impact in Action</h2>
+    <h2 class="slide-title">Validation & Case Studies</h2>
     <div class="content-area">
         <div class="two-column">
             <div>
                 <ul class="bullet-list" style="padding:0; margin-top:10px;">
                     <li style="padding: 15px 20px; border:none; background:transparent; margin-bottom:10px;">
                         <strong>EFRS Cost of Service Study</strong>
-                        Delivered robust, defensible financial and operational analysis. This deep-dive provided the undeniable evidence base required to secure critical resourcing decisions.
+                        A robust, defensible financial and operational analysis. This diagnostic provided the undeniable evidence base required to secure critical resourcing decisions.
                     </li>
                     <li style="padding: 15px 20px; border:none; background:transparent; margin-bottom:10px;">
                         <strong>Integrated Strategic Frameworks</strong>
-                        Transformed executive quarterly conversations. Instead of disjointed updates, we now tie risk, budget, and performance metrics into one cohesive, strategic narrative.
+                        Transformed executive conversations. Instead of disjointed updates, we tied risk, budget, and metrics into one cohesive, strategic narrative aligning operations with corporate strategy.
                     </li>
                     <li style="padding: 15px 20px; border:none; background:transparent; margin-bottom:10px;">
                         <strong>The "So What?" Guarantee</strong>
@@ -784,4 +797,3 @@ body {
 
 </body>
 </html>
-```
