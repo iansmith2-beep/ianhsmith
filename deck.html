@@ -3,797 +3,470 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Enabler DSS: Service Blueprint & Menu</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>Service Blueprint | The Enabler DSS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.260.0/lucide.min.js"></script>
     <style>
-/* 1. THE SETUP */
-* {
-  box-sizing: border-box;
-}
-
-p {
-  margin: 0;
-  margin-bottom: 15px;
-}
-
-body {
-  background-color: #f1f5f9;
-  display: grid;
-  gap: 20px;
-  grid-template-columns: 1fr;
-  margin: 0;
-  min-height: 100vh;
-  padding: 20px 0;
-  place-items: center;
-}
-
-.slide-container {
-  align-items: center;
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-  display: flex;
-  flex-direction: column;
-  font-family: 'Lato', sans-serif;
-  height: 720px;
-  justify-content: center;
-  overflow: hidden;
-  padding: 60px;
-  position: relative;
-  width: 1280px;
-  border: 1px solid #e2e8f0;
-}
-
-.slide-container::before {
-  content: '';
-  height: 100%;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 100%;
-  z-index: 0;
-}
-
-.slide-container > * {
-  position: relative;
-  z-index: 1;
-}
-
-/* 2. CONSISTENT TYPOGRAPHY */
-.slide-container h1,
-.slide-container h2,
-.slide-container h3 {
-  color: #0f172a;
-  font-weight: 700;
-  font-family: 'Poppins', sans-serif;
-  margin: 0;
-}
-
-.slide-container p,
-.slide-container li,
-.slide-container .subtitle,
-.slide-container th,
-.slide-container td,
-.slide-container .bleed-text-side p {
-  color: #475569;
-  font-family: 'Lato', sans-serif;
-}
-
-.slide-container h1 {
-  font-size: 70px;
-  line-height: 1.1;
-  margin-bottom: 20px;
-}
-
-.slide-container .slide-title {
-  font-size: 40px;
-  font-weight: 600;
-  margin-bottom: 40px;
-  text-align: left;
-  width: 100%;
-  color: #0f172a;
-}
-
-.slide-container h3 {
-  font-size: 28px;
-  font-weight: 600;
-  margin-bottom: 15px;
-  color: #1e293b;
-}
-
-.slide-container p,
-.slide-container li,
-.slide-container th,
-.slide-container td,
-.slide-container .bleed-text-side p {
-  font-size: 18px;
-  line-height: 1.6;
-}
-
-.slide-container .subtitle {
-  font-size: 24px;
-  font-weight: 400;
-  margin: 0 auto;
-  color: #334155;
-  max-width: 800px;
-}
-
-.slide-container .content-area {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  justify-content: flex-start;
-  width: 100%;
-}
-
-/* 3. LAYOUT DEFINITIONS */
-.title-layout {
-  text-align: center;
-}
-
-.title-layout .department-badge {
-  display: inline-block;
-  background-color: #eff6ff;
-  color: #2563eb;
-  font-weight: 700;
-  font-size: 16px;
-  padding: 8px 16px;
-  border-radius: 20px;
-  margin-bottom: 20px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.two-column {
-  align-items: flex-start;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 50px;
-  width: 100%;
-}
-
-.two-column.tiled {
-  align-items: stretch;
-}
-
-.two-column.tiled > div {
-  background-color: #f8fafc;
-  border-radius: 12px;
-  border: 1px solid #e2e8f0;
-  padding: 40px;
-  text-align: left;
-  display: flex;
-  flex-direction: column;
-}
-
-.two-column.tiled h3 {
-  color: #2563eb;
-  border-bottom: 2px solid #e2e8f0;
-  padding-bottom: 15px;
-  margin-bottom: 20px;
-}
-
-.two-column ul {
-  list-style: disc;
-  margin: 0;
-  padding-left: 25px;
-}
-
-.two-column li {
-  margin-bottom: 15px;
-}
-
-.image-wrapper {
-  border-radius: 12px;
-  height: 400px;
-  max-width: 100%;
-  overflow: hidden;
-  width: 100%;
-  border: 1px solid #e2e8f0;
-}
-
-.image-wrapper img {
-  height: 100%;
-  max-width: 100%;
-  object-fit: cover;
-  width: 100%;
-}
-
-.two-column .image-wrapper img {
-  object-fit: cover;
-}
-
-.tiled-content {
-  align-items: stretch;
-  display: flex;
-  gap: 30px;
-  justify-content: center;
-  width: 100%;
-}
-
-.tile {
-  align-items: center;
-  background-color: #f8fafc;
-  border-radius: 12px;
-  border: 1px solid #e2e8f0;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  justify-content: flex-start;
-  padding: 40px 30px;
-  text-align: center;
-}
-
-.tile .icon {
-  color: #2563eb;
-  font-size: 48px;
-  margin-bottom: 25px;
-}
-
-.tile h3 {
-  font-size: 24px;
-}
-
-.bullet-list {
-  max-width: 1000px;
-  width: 100%;
-  align-self: center;
-}
-
-.bullet-list ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.bullet-list li {
-  background-color: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: 8px;
-  margin-bottom: 20px;
-  padding: 20px 20px 20px 60px;
-  position: relative;
-}
-
-.bullet-list i {
-  color: #2563eb;
-  font-size: 24px;
-  left: 20px;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.bullet-list li strong {
-  color: #0f172a;
-  font-weight: 700;
-  display: block;
-  font-size: 20px;
-  margin-bottom: 5px;
-  font-family: 'Poppins', sans-serif;
-}
-
-/* Section Title */
-.section-title-layout {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  justify-content: center;
-  text-align: center;
-  width: 100%;
-}
-
-.section-title-layout h2 {
-  font-size: 60px;
-  margin-bottom: 20px;
-  color: #0f172a;
-}
-
-.section-title-layout p {
-  font-size: 24px;
-  margin: 0 auto;
-  max-width: 700px;
-}
-
-.section-title-layout hr {
-  background-color: #2563eb;
-  border: none;
-  height: 6px;
-  margin: 30px auto;
-  width: 80px;
-  border-radius: 3px;
-}
-
-/* Table Layout */
-.table-layout {
-  width: 100%;
-  background-color: #fff;
-  border-radius: 12px;
-  overflow: hidden;
-  border: 1px solid #e2e8f0;
-}
-
-.table-layout table {
-  border-collapse: collapse;
-  width: 100%;
-}
-
-.table-layout th,
-.table-layout td {
-  border-bottom: 1px solid #e2e8f0;
-  padding: 20px 24px;
-  text-align: left;
-}
-
-.table-layout th {
-  background-color: #f8fafc;
-  color: #0f172a;
-  font-size: 16px;
-  font-weight: 700;
-  font-family: 'Poppins', sans-serif;
-  border-bottom: 2px solid #cbd5e1;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.table-layout tr:last-child td {
-  border-bottom: none;
-}
-
-.table-layout td.solution {
-  font-weight: 700;
-  color: #2563eb;
-}
-
-.table-layout td.deliverable {
-  font-weight: 500;
-  color: #0f172a;
-}
-
-.table-layout td span.cross-functional {
-  background-color: #fef08a;
-  color: #854d0e;
-  padding: 4px 8px;
-  border-radius: 4px;
-  font-size: 12px;
-  font-weight: 700;
-  text-transform: uppercase;
-  display: inline-block;
-  margin-bottom: 8px;
-}
-
-/* Timeline Layout */
-.timeline-layout {
-  align-items: stretch;
-  display: flex;
-  height: stretch;
-  justify-content: space-between;
-  position: relative;
-  width: 100%;
-  margin-top: 40px;
-}
-
-.timeline-layout .timeline-line {
-  background-color: #cbd5e1;
-  height: 4px;
-  left: 0;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-2px);
-  width: 100%;
-  z-index: 0;
-}
-
-.timeline-item {
-  position: relative;
-  text-align: center;
-  width: 23%;
-}
-
-.timeline-item::after {
-  background-color: #fff;
-  border-radius: 50%;
-  border: 4px solid #2563eb;
-  content: '';
-  height: 24px;
-  left: 50%;
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 24px;
-  z-index: 1;
-}
-
-.timeline-item .content-wrapper {
-  left: 0;
-  position: absolute;
-  width: 100%;
-  background-color: #f8fafc;
-  padding: 20px;
-  border-radius: 8px;
-  border: 1px solid #e2e8f0;
-}
-
-.timeline-item:nth-child(odd) .content-wrapper {
-  bottom: 50%;
-  margin-bottom: 35px;
-}
-
-.timeline-item:nth-child(even) .content-wrapper {
-  margin-top: 35px;
-  top: 50%;
-}
-
-.timeline-item h3 {
-  color: #0f172a;
-  font-size: 20px;
-  margin-bottom: 10px;
-}
-
-.timeline-item p {
-  font-size: 16px;
-  line-height: 1.4;
-  margin: 0;
-}
-
-/* Q&A Layout */
-.qa-layout {
-  margin: 0 auto;
-  text-align: center;
-  width: 100%;
-  align-self: center;
-}
-
-.qa-layout h2 {
-  font-size: 80px;
-  margin-bottom: 20px;
-  color: #0f172a;
-}
-
-.qa-layout p {
-  font-size: 24px;
-  color: #475569;
-}
-
-.qa-layout .contact-info {
-  background-color: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: 8px;
-  color: #0f172a;
-  font-size: 20px;
-  font-weight: 700;
-  margin-top: 40px;
-  padding: 20px;
-  display: inline-block;
-}
-
-/* Bleed_Image_Right layout */
-.slide-container.bleed-image-layout {
-  align-items: start;
-  display: grid;
-  gap: 50px;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  padding: 0;
-}
-
-.slide-container.bleed-image-layout > .content-container {
-  padding: 60px 0 60px 60px;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  justify-content: center;
-}
-
-.slide-container.bleed-image-layout > .image-container {
-  height: 100%;
-  overflow: hidden;
-  width: 100%;
-}
-
-.slide-container.bleed-image-layout img.bleed-image-side {
-  display: block;
-  height: 720px;
-  object-fit: cover;
-  object-position: center;
-  width: 100%;
-}
-
-.slide-container.bleed-image-layout .bleed-text-side p {
-  color: #475569;
-  line-height: 1.6;
-  margin-bottom: 20px;
-  font-size: 20px;
-}
-
-.slide-container.bleed-image-layout .slide-title {
-  margin-bottom: 30px;
-}
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+            scroll-behavior: smooth;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
     </style>
 </head>
-<body>
+<body class="antialiased selection:bg-blue-100 selection:text-blue-900">
 
-
-<div class="slide-container" id="slide1">
-    <div class="title-layout">
-        <span class="department-badge">Department Strategy (DSS)</span>
-        <h1>The Enabler DSS</h1>
-        <p class="subtitle">Service Blueprint & Consolidated Service Menu</p>
-    </div>
-</div>
-
-
-<div class="slide-container bleed-image-layout" id="slide2">
-    <div class="content-container">
-        <h2 class="slide-title">Our Strategic Foundation</h2>
-        <div class="content-area">
-            <div class="bleed-text-side">
-                <p><strong>The Paradigm Shift: From Enforcers to Partners</strong></p>
-                <p>Historically, corporate advisory teams operated as outsiders—arriving at the end of a project to enforce checklists. We are moving away from this model. We have united into an embedded strategic partnership designed to clear your path, not clutter it.</p>
-                <p><strong>The Core Metaphor: Engine & Vehicle</strong></p>
-                <p>Your branch operations and frontline delivery act as the vehicle that enables the city to function. Our team—deploying strategy, policy, risk mitigation, and analytics—operates as the engine powering that vehicle forward.</p>
-            </div>
-        </div>
-    </div>
-    <div class="image-container">
-        <img class="bleed-image-side" src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2940&auto=format&fit=crop" alt="Modern corporate office team collaborating on a strategic plan">
-    </div>
-</div>
-
-
-<div class="slide-container" id="slide3">
-    <h2 class="slide-title">Our Shared Core Principles</h2>
-    <div class="content-area">
-        <div class="bullet-list">
-            <ul>
-                <li>
-                    <i class="fa-solid fa-compass"></i>
-                    <strong>Strategic Alignment</strong>
-                    Ensuring service initiatives and improvements explicitly align with corporate strategy, mandates, and service review processes.
-                </li>
-                <li>
-                    <i class="fa-solid fa-users"></i>
-                    <strong>Customer Centricity</strong>
-                    Applying a deep customer service lens to enable services to be designed and delivered with the needs of the clients at the forefront.
-                </li>
-                <li>
-                    <i class="fa-solid fa-chart-line"></i>
-                    <strong>Financial Sustainability</strong>
-                    Executing rigorous financial and operational analysis to ensure long-term stability and viability of branch services.
-                </li>
-                <li>
-                    <i class="fa-solid fa-database"></i>
-                    <strong>Data Integrity & Consistency</strong>
-                    Ensuring strict standards and priorities for data integrity, consolidation, and methodology development are consistently met.
-                </li>
-                <li>
-                    <i class="fa-solid fa-handshake"></i>
-                    <strong>Collaborative Partnerships</strong>
-                    Applying a trust-based relationship for shared success to enable collaborative communication, mutual contributions, and joint accountability.
-                </li>
-            </ul>
-        </div>
-    </div>
-</div>
-
-
-<div class="slide-container" id="slide4">
-    <div class="section-title-layout">
-        <hr>
-        <h2>The Three Strategic Pillars</h2>
-        <p>Strategic Planning. Service Improvement. Performance & Analytics. We deploy integrated expertise to solve your most complex problems.</p>
-    </div>
-</div>
-
-
-<div class="slide-container" id="slide5">
-    <h2 class="slide-title">01. Strategic Planning</h2>
-    <div class="content-area">
-        <div class="two-column tiled">
-            <div>
-                <h3>Defining Direction</h3>
-                <p>We transform strategic framework requirements into specific, manageable deliverables, navigating complexity and translating City goals into actionable plans.</p>
-            </div>
-            <div>
-                <h3>Core Services</h3>
-                <ul>
-                    <li>Corporate & Branch Business Planning</li>
-                    <li>Policy Design & Rescind Reviews</li>
-                    <li>4-Year Operating & Capital Budget Support</li>
-                    <li>Risk Management & Registers</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<div class="slide-container" id="slide6">
-    <h2 class="slide-title">02. Service Improvement</h2>
-    <div class="content-area">
-        <div class="two-column tiled">
-            <div>
-                <h3>Redesigning Reality</h3>
-                <p>We provide objective, end-to-end service reviews, engineer practical business solutions, and map workflows to eliminate operational bottlenecks.</p>
-            </div>
-            <div>
-                <h3>Core Services</h3>
-                <ul>
-                    <li>End-to-End Service Reviews</li>
-                    <li>Current State Analysis & Process Mapping</li>
-                    <li>Cost Benefit & Cost of Service Analysis</li>
-                    <li>Change Management Support</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<div class="slide-container" id="slide7">
-    <h2 class="slide-title">03. Performance & Analytics</h2>
-    <div class="content-area">
-        <div class="two-column tiled">
-            <div>
-                <h3>Illuminating the Dark</h3>
-                <p>We leverage data and analytics to inform decisions, turning raw information into crisp, actionable insights and executive dashboards that prove your ROI.</p>
-            </div>
-            <div>
-                <h3>Core Services</h3>
-                <ul>
-                    <li>Advanced Data Analytics</li>
-                    <li>Measure Evaluation (SMART KPIs)</li>
-                    <li>Visualizations & Executive Reports</li>
-                    <li>Methodology Documentation</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<div class="slide-container" id="slide8">
-    <h2 class="slide-title">Engagement Model Framework</h2>
-    <div class="content-area">
-        <p class="subtitle" style="text-align: center; margin-bottom: 40px;">Removing silos and providing a centralized intake process for our partners.</p>
-        <div class="tiled-content">
-            <div class="tile">
-                <div class="icon"><i class="fa-solid fa-hand-sparkles"></i></div>
-                <h3>1. Client Initiation</h3>
-                <p>Clients identify a complex operational or strategic challenge at the onset and bring us in at "Day One."</p>
-            </div>
-            <div class="tile">
-                <div class="icon"><i class="fa-solid fa-arrows-to-circle"></i></div>
-                <h3>2. Central Scoping & Triage</h3>
-                <p>Leadership triages the request, assesses the complexity of the problem, and frames the required approach without service silos.</p>
-            </div>
-            <div class="tile">
-                <div class="icon"><i class="fa-solid fa-rocket"></i></div>
-                <h3>3. Deployed Expertise</h3>
-                <p>We execute by assigning a custom, cross-functional team focused entirely on producing actionable outcomes.</p>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<div class="slide-container" id="slide9">
-    <h2 class="slide-title">The Service Catalog Blueprint</h2>
-    <div class="content-area">
-        <div class="table-layout">
-            <table>
-                <thead>
-                    <tr>
-                        <th style="width: 35%;">Client Problem</th>
-                        <th style="width: 25%;">DSS Solution</th>
-                        <th style="width: 40%;">Final Deliverable</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>"A new leadership mandate has misaligned our budget and delivery."</td>
-                        <td class="solution">Strategic Alignment & Business Planning</td>
-                        <td class="deliverable">A cohesive Business Plan connecting operational realities with new corporate directives.</td>
-                    </tr>
-                    <tr>
-                        <td>"A critical internal service is messy, and we don't know where to start."</td>
-                        <td class="solution">End-to-End Service Reviews</td>
-                        <td class="deliverable">A comprehensive diagnostic of pain points backed by a prioritized roadmap.</td>
-                    </tr>
-                    <tr>
-                        <td>"We have mountains of data but struggle to tell our value story."</td>
-                        <td class="solution">Measurement Frameworks</td>
-                        <td class="deliverable">Customized KPIs tracking actual outcomes, not just outputs.</td>
-                    </tr>
-                    <tr>
-                        <td>"We are launching a new delivery model and need to update red-tape policy while navigating operational trade-offs."</td>
-                        <td class="solution"><span class="cross-functional">Cross-Functional</span><br>Integrated Policy & Risk Strategy</td>
-                        <td class="deliverable">Modern, enforceable policy frameworks combined with proactive risk mitigation strategies for a safe launch.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div>
-
-
-<div class="slide-container" id="slide10">
-    <h2 class="slide-title">Deliverables & Advisory Rhythm</h2>
-    <div class="content-area">
-        <div class="timeline-layout">
-            <div class="timeline-line"></div>
-            <div class="timeline-item">
-                <div class="content-wrapper">
-                    <h3>Year 1</h3>
-                    <p>4-Year Operating & Capital Budget development. Risk & Policy Assessments. Core performance tracking.</p>
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-3">
+                    <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+                        <i data-lucide="compass" class="text-white w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <span class="font-bold text-xl tracking-tight text-slate-900 leading-none block">The Enabler DSS</span>
+                    </div>
                 </div>
-            </div>
-            <div class="timeline-item">
-                <div class="content-wrapper">
-                    <h3>Year 2</h3>
-                    <p>Strategic Quarterly Conversations. Targeted End-to-End Service Reviews and process optimizations.</p>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="content-wrapper">
-                    <h3>Year 3</h3>
-                    <p>Corporate and Department Business Plan Updates. Branch Placemat refreshes. Cost Benefit Analyses.</p>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="content-wrapper">
-                    <h3>Year 4</h3>
-                    <p>Results Reporting. Policy Rescind Reviews. Evaluation and preparation for the next 4-Year cycle.</p>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#foundation" class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors">Foundation</a>
+                    <a href="#pillars" class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors">Pillars</a>
+                    <a href="#engagement" class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors">Engagement</a>
+                    <a href="#catalog" class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors">Catalog</a>
                 </div>
             </div>
         </div>
-    </div>
-</div>
+    </nav>
 
-
-<div class="slide-container" id="slide11">
-    <h2 class="slide-title">Validation & Case Studies</h2>
-    <div class="content-area">
-        <div class="two-column">
-            <div>
-                <ul class="bullet-list" style="padding:0; margin-top:10px;">
-                    <li style="padding: 15px 20px; border:none; background:transparent; margin-bottom:10px;">
-                        <strong>EFRS Cost of Service Study</strong>
-                        A robust, defensible financial and operational analysis. This diagnostic provided the undeniable evidence base required to secure critical resourcing decisions.
-                    </li>
-                    <li style="padding: 15px 20px; border:none; background:transparent; margin-bottom:10px;">
-                        <strong>Integrated Strategic Frameworks</strong>
-                        Transformed executive conversations. Instead of disjointed updates, we tied risk, budget, and metrics into one cohesive, strategic narrative aligning operations with corporate strategy.
-                    </li>
-                    <li style="padding: 15px 20px; border:none; background:transparent; margin-bottom:10px;">
-                        <strong>The "So What?" Guarantee</strong>
-                        Every DSS deliverable must answer one question: What do you do differently tomorrow because of this? If it's not actionable, it's not done.
-                    </li>
-                </ul>
+    <!-- Hero Section -->
+    <section class="hero-gradient pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden relative border-b-4 border-blue-600">
+        <div class="absolute inset-0 opacity-10">
+            <svg class="h-full w-full" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <pattern id="grid-pattern" width="40" height="40" patternUnits="userSpaceOnUse">
+                        <path d="M0 40V0H40" fill="none" stroke="white" stroke-width="1"/>
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#grid-pattern)"/>
+            </svg>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <div class="inline-flex items-center space-x-2 bg-slate-800/80 rounded-full px-4 py-1.5 mb-8 border border-slate-700 backdrop-blur-sm">
+                <span class="text-xs font-medium tracking-widest text-blue-400 uppercase">Internal Reference Document</span>
             </div>
-            <div>
-                <div class="image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop" alt="Close up of professionals reviewing financial charts and analytics">
+            
+            <h1 class="text-4xl md:text-6xl font-extrabold text-white tracking-tight mb-6 leading-tight">
+                Service Blueprint & <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">Consolidated Menu</span>
+            </h1>
+            
+            <p class="mt-4 max-w-2xl mx-auto text-xl text-slate-300 font-light leading-relaxed">
+                Sense-Makers. Wayfinders. Strategic Partners.
+            </p>
+        </div>
+    </section>
+
+    <!-- 1. Strategic Foundation -->
+    <section id="foundation" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-sm font-bold tracking-widest text-blue-600 uppercase mb-2">01. Our Strategic Foundation</h2>
+                <h3 class="text-3xl font-bold text-slate-900 sm:text-4xl">Moving from Enforcers to Partners</h3>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-stretch">
+                <!-- Paradigm Shift -->
+                <div class="bg-slate-50 rounded-2xl p-8 md:p-10 border border-slate-200">
+                    <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="arrow-right-left" class="w-6 h-6 text-blue-600"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold text-slate-900 mb-4">The Paradigm Shift</h4>
+                    <p class="text-slate-600 leading-relaxed text-lg">
+                        Historically, corporate advisory teams operated as outsiders—arriving at the end of a project to enforce checklists. We are moving away from this model. We have united into an embedded strategic partnership designed to clear your path, not clutter it.
+                    </p>
+                </div>
+
+                <!-- Metaphor -->
+                <div class="bg-blue-600 rounded-2xl p-8 md:p-10 text-white shadow-xl relative overflow-hidden">
+                    <i data-lucide="settings" class="absolute -bottom-10 -right-10 w-64 h-64 text-blue-500/30 transform rotate-45"></i>
+                    <div class="relative z-10">
+                        <div class="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center mb-6 border border-blue-400">
+                            <i data-lucide="zap" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <h4 class="text-2xl font-bold mb-4">The Core Metaphor</h4>
+                        <p class="text-2xl font-semibold mb-4 text-blue-100">"You drive the vehicle. We tune the engine."</p>
+                        <p class="text-blue-50 leading-relaxed text-lg opacity-90">
+                            Your branch operations and frontline delivery act as the vehicle that enables the city to function. Our team—deploying strategy, policy, risk mitigation, and analytics—operates as the engine powering that vehicle forward.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
+    </section>
 
-
-<div class="slide-container" id="slide12">
-    <div class="qa-layout">
-        <h2>Bring us in at Day One.</h2>
-        <p>Your strategic advantage is already in-house. Invite us to your next leadership table.</p>
-        <div class="contact-info">
-            DSS.Leadership@edmonton.ca
+    <!-- 2. Core Principles -->
+    <section class="py-16 bg-slate-900 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-sm font-bold tracking-widest text-slate-400 uppercase mb-12 text-center">02. Our Shared Core Principles</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-6">
+                <!-- Principle 1 -->
+                <div class="text-center group">
+                    <div class="w-16 h-16 bg-slate-800 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-600 transition-colors border border-slate-700 group-hover:border-blue-500">
+                        <i data-lucide="target" class="w-8 h-8 text-blue-400 group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h4 class="text-white font-semibold mb-2">Strategic Alignment</h4>
+                    <p class="text-sm text-slate-400">Aligning service initiatives with corporate strategy and mandates.</p>
+                </div>
+                <!-- Principle 2 -->
+                <div class="text-center group">
+                    <div class="w-16 h-16 bg-slate-800 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-emerald-600 transition-colors border border-slate-700 group-hover:border-emerald-500">
+                        <i data-lucide="users" class="w-8 h-8 text-emerald-400 group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h4 class="text-white font-semibold mb-2">Customer Centricity</h4>
+                    <p class="text-sm text-slate-400">Designing services with the needs of clients at the forefront.</p>
+                </div>
+                <!-- Principle 3 -->
+                <div class="text-center group">
+                    <div class="w-16 h-16 bg-slate-800 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-amber-600 transition-colors border border-slate-700 group-hover:border-amber-500">
+                        <i data-lucide="trending-up" class="w-8 h-8 text-amber-400 group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h4 class="text-white font-semibold mb-2">Financial Sustainability</h4>
+                    <p class="text-sm text-slate-400">Executing rigorous financial analysis for long-term viability.</p>
+                </div>
+                <!-- Principle 4 -->
+                <div class="text-center group">
+                    <div class="w-16 h-16 bg-slate-800 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-purple-600 transition-colors border border-slate-700 group-hover:border-purple-500">
+                        <i data-lucide="database" class="w-8 h-8 text-purple-400 group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h4 class="text-white font-semibold mb-2">Data Integrity</h4>
+                    <p class="text-sm text-slate-400">Ensuring strict standards for data and methodology.</p>
+                </div>
+                <!-- Principle 5 -->
+                <div class="text-center group">
+                    <div class="w-16 h-16 bg-slate-800 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-sky-600 transition-colors border border-slate-700 group-hover:border-sky-500">
+                        <i data-lucide="handshake" class="w-8 h-8 text-sky-400 group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h4 class="text-white font-semibold mb-2">Collaborative Partnerships</h4>
+                    <p class="text-sm text-slate-400">Building trust-based relationships for shared success.</p>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
+    </section>
 
+    <!-- 3. The Three Strategic Pillars -->
+    <section id="pillars" class="py-20 bg-slate-50 border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-sm font-bold tracking-widest text-blue-600 uppercase mb-2">03. The Three Strategic Pillars</h2>
+                <h3 class="text-3xl font-bold text-slate-900 sm:text-4xl">Integrated expertise across three core areas.</h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Pillar 1 -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm border border-slate-200 card-hover flex flex-col">
+                    <div class="w-14 h-14 bg-indigo-50 rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="map" class="w-7 h-7 text-indigo-600"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-900 mb-1">01. Strategic Planning</h3>
+                    <p class="text-sm font-bold text-indigo-600 mb-4 tracking-wider uppercase">Defining Direction</p>
+                    <p class="text-slate-600 leading-relaxed mb-6 flex-grow">
+                        We transform strategic framework requirements into specific, manageable deliverables, navigating complexity and translating City goals into actionable plans.
+                    </p>
+                    <div class="bg-slate-50 rounded-xl p-5 border border-slate-100">
+                        <h5 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Core Services</h5>
+                        <ul class="space-y-2 text-sm text-slate-700 font-medium">
+                            <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-indigo-500 mr-2 mt-0.5 shrink-0"></i> Corporate & Branch Business Planning</li>
+                            <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-indigo-500 mr-2 mt-0.5 shrink-0"></i> Policy Design & Rescind Reviews</li>
+                            <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-indigo-500 mr-2 mt-0.5 shrink-0"></i> 4-Year Operating & Capital Budget Support</li>
+                            <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-indigo-500 mr-2 mt-0.5 shrink-0"></i> Risk Management & Registers</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Pillar 2 -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm border border-slate-200 card-hover flex flex-col">
+                    <div class="w-14 h-14 bg-emerald-50 rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="git-pull-request" class="w-7 h-7 text-emerald-600"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-900 mb-1">02. Service Improvement</h3>
+                    <p class="text-sm font-bold text-emerald-600 mb-4 tracking-wider uppercase">Redesigning Reality</p>
+                    <p class="text-slate-600 leading-relaxed mb-6 flex-grow">
+                        We provide objective, end-to-end service reviews, engineer practical business solutions, and map workflows to eliminate operational bottlenecks.
+                    </p>
+                    <div class="bg-slate-50 rounded-xl p-5 border border-slate-100">
+                        <h5 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Core Services</h5>
+                        <ul class="space-y-2 text-sm text-slate-700 font-medium">
+                            <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-emerald-500 mr-2 mt-0.5 shrink-0"></i> End-to-End Service Reviews</li>
+                            <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-emerald-500 mr-2 mt-0.5 shrink-0"></i> Current State Analysis & Process Mapping</li>
+                            <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-emerald-500 mr-2 mt-0.5 shrink-0"></i> Cost Benefit & Cost of Service Analysis</li>
+                            <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-emerald-500 mr-2 mt-0.5 shrink-0"></i> Change Management Support</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Pillar 3 -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm border border-slate-200 card-hover flex flex-col">
+                    <div class="w-14 h-14 bg-sky-50 rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="bar-chart-2" class="w-7 h-7 text-sky-600"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-900 mb-1">03. Performance & Analytics</h3>
+                    <p class="text-sm font-bold text-sky-600 mb-4 tracking-wider uppercase">Illuminating the Dark</p>
+                    <p class="text-slate-600 leading-relaxed mb-6 flex-grow">
+                        We leverage data and analytics to inform decisions, turning raw information into crisp, actionable insights and executive dashboards that prove your ROI.
+                    </p>
+                    <div class="bg-slate-50 rounded-xl p-5 border border-slate-100">
+                        <h5 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Core Services</h5>
+                        <ul class="space-y-2 text-sm text-slate-700 font-medium">
+                            <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-sky-500 mr-2 mt-0.5 shrink-0"></i> Advanced Data Analytics</li>
+                            <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-sky-500 mr-2 mt-0.5 shrink-0"></i> Measure Evaluation (SMART KPIs)</li>
+                            <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-sky-500 mr-2 mt-0.5 shrink-0"></i> Visualizations & Executive Reports</li>
+                            <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-sky-500 mr-2 mt-0.5 shrink-0"></i> Methodology Documentation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Engagement Model -->
+    <section id="engagement" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-sm font-bold tracking-widest text-blue-600 uppercase mb-2">04. Engagement Model Framework</h2>
+                <h3 class="text-3xl font-bold text-slate-900 sm:text-4xl">Removing silos. One central intake.</h3>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 relative max-w-5xl mx-auto">
+                <!-- Connector Line (Desktop) -->
+                <div class="hidden md:block absolute top-12 left-[16.66%] right-[16.66%] h-0.5 bg-slate-200 z-0"></div>
+
+                <!-- Step 1 -->
+                <div class="relative z-10 text-center">
+                    <div class="w-24 h-24 bg-white border-4 border-slate-100 rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm">
+                        <span class="text-2xl font-bold text-slate-300">1</span>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-3">Client Initiation</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed px-4">
+                        Clients identify a complex operational or strategic challenge at the onset and bring us in at "Day One."
+                    </p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="relative z-10 text-center mt-8 md:mt-0">
+                    <div class="w-24 h-24 bg-blue-600 border-4 border-blue-100 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-blue-200">
+                        <span class="text-2xl font-bold text-white">2</span>
+                    </div>
+                    <h4 class="text-xl font-bold text-blue-700 mb-3">Central Scoping & Triage</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed px-4">
+                        Leadership triages the request, assesses the complexity of the problem, and frames the required approach without service silos.
+                    </p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="relative z-10 text-center mt-8 md:mt-0">
+                    <div class="w-24 h-24 bg-white border-4 border-slate-100 rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm">
+                        <span class="text-2xl font-bold text-slate-300">3</span>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-3">Deployed Expertise</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed px-4">
+                        We execute by assigning a custom, cross-functional team focused entirely on producing actionable outcomes.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Service Catalog Blueprint (Matrix) -->
+    <section id="catalog" class="py-20 bg-slate-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-sm font-bold tracking-widest text-blue-400 uppercase mb-2">05. The Service Catalog Blueprint</h2>
+                <h3 class="text-3xl font-bold text-white sm:text-4xl">Connecting Pain Points to Deliverables</h3>
+            </div>
+
+            <div class="overflow-x-auto bg-slate-800 rounded-2xl border border-slate-700 shadow-xl">
+                <table class="w-full text-left border-collapse min-w-[800px]">
+                    <thead>
+                        <tr class="bg-slate-900 border-b border-slate-700">
+                            <th class="py-5 px-6 font-semibold text-slate-300 w-1/3">Client Problem</th>
+                            <th class="py-5 px-6 font-semibold text-slate-300 w-1/4">DSS Solution</th>
+                            <th class="py-5 px-6 font-semibold text-slate-300">Final Deliverable</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-700/50">
+                        <tr class="hover:bg-slate-800/80 transition-colors">
+                            <td class="py-6 px-6 align-top">
+                                <p class="text-slate-300 italic font-medium leading-relaxed">"A new leadership mandate has misaligned our budget and delivery."</p>
+                            </td>
+                            <td class="py-6 px-6 align-top">
+                                <span class="inline-block px-3 py-1 bg-indigo-500/20 text-indigo-300 rounded-full text-xs font-bold uppercase tracking-wider mb-2 border border-indigo-500/30">Strategic Planning</span>
+                                <p class="font-semibold text-white">Strategic Alignment & Business Planning</p>
+                            </td>
+                            <td class="py-6 px-6 align-top text-slate-400 leading-relaxed">
+                                A cohesive Business Plan connecting operational realities with new corporate directives.
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-slate-800/80 transition-colors">
+                            <td class="py-6 px-6 align-top">
+                                <p class="text-slate-300 italic font-medium leading-relaxed">"A critical internal service is messy, and we don't know where to start."</p>
+                            </td>
+                            <td class="py-6 px-6 align-top">
+                                <span class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-300 rounded-full text-xs font-bold uppercase tracking-wider mb-2 border border-emerald-500/30">Service Improvement</span>
+                                <p class="font-semibold text-white">End-to-End Service Reviews</p>
+                            </td>
+                            <td class="py-6 px-6 align-top text-slate-400 leading-relaxed">
+                                A comprehensive diagnostic of pain points backed by a prioritized roadmap.
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-slate-800/80 transition-colors">
+                            <td class="py-6 px-6 align-top">
+                                <p class="text-slate-300 italic font-medium leading-relaxed">"We have mountains of data but struggle to tell our value story."</p>
+                            </td>
+                            <td class="py-6 px-6 align-top">
+                                <span class="inline-block px-3 py-1 bg-sky-500/20 text-sky-300 rounded-full text-xs font-bold uppercase tracking-wider mb-2 border border-sky-500/30">Analytics</span>
+                                <p class="font-semibold text-white">Measurement Frameworks</p>
+                            </td>
+                            <td class="py-6 px-6 align-top text-slate-400 leading-relaxed">
+                                Customized KPIs tracking actual outcomes, not just outputs.
+                            </td>
+                        </tr>
+                        <tr class="bg-blue-900/20 hover:bg-blue-900/30 transition-colors">
+                            <td class="py-6 px-6 align-top border-l-4 border-blue-500">
+                                <p class="text-blue-100 italic font-medium leading-relaxed">"We are launching a new delivery model and need to update red-tape policy while navigating operational trade-offs."</p>
+                            </td>
+                            <td class="py-6 px-6 align-top">
+                                <span class="inline-block px-3 py-1 bg-amber-500/20 text-amber-300 rounded-full text-xs font-bold uppercase tracking-wider mb-2 border border-amber-500/50">Cross-Functional</span>
+                                <p class="font-bold text-white">Integrated Policy & Risk Strategy</p>
+                            </td>
+                            <td class="py-6 px-6 align-top text-blue-200 leading-relaxed">
+                                Modern, enforceable policy frameworks combined with proactive risk mitigation strategies for a safe launch.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6 & 7. Rhythm & Validation -->
+    <section class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-16">
+                
+                <!-- Advisory Rhythm (Left Col) -->
+                <div class="lg:col-span-5">
+                    <h2 class="text-sm font-bold tracking-widest text-blue-600 uppercase mb-2">06. The Lifecycle</h2>
+                    <h3 class="text-2xl font-bold text-slate-900 mb-8">Deliverables & Advisory Rhythm</h3>
+                    
+                    <div class="relative border-l-2 border-slate-200 ml-3 md:ml-4 space-y-10 pb-4">
+                        <div class="relative pl-8">
+                            <div class="absolute w-4 h-4 bg-white border-2 border-blue-500 rounded-full -left-[9px] top-1"></div>
+                            <h4 class="font-bold text-slate-900">Year 1</h4>
+                            <p class="text-sm text-slate-600 mt-1">4-Year Operating & Capital Budget development. Risk & Policy Assessments. Core performance tracking.</p>
+                        </div>
+                        <div class="relative pl-8">
+                            <div class="absolute w-4 h-4 bg-white border-2 border-slate-400 rounded-full -left-[9px] top-1"></div>
+                            <h4 class="font-bold text-slate-900">Year 2</h4>
+                            <p class="text-sm text-slate-600 mt-1">Strategic Quarterly Conversations. Targeted End-to-End Service Reviews and process optimizations.</p>
+                        </div>
+                        <div class="relative pl-8">
+                            <div class="absolute w-4 h-4 bg-white border-2 border-slate-400 rounded-full -left-[9px] top-1"></div>
+                            <h4 class="font-bold text-slate-900">Year 3</h4>
+                            <p class="text-sm text-slate-600 mt-1">Corporate and Department Business Plan Updates. Branch Placemat refreshes. Cost Benefit Analyses.</p>
+                        </div>
+                        <div class="relative pl-8">
+                            <div class="absolute w-4 h-4 bg-blue-600 border-2 border-blue-600 rounded-full -left-[9px] top-1"></div>
+                            <h4 class="font-bold text-blue-700">Year 4</h4>
+                            <p class="text-sm text-slate-600 mt-1">Results Reporting. Policy Rescind Reviews. Evaluation and preparation for the next 4-Year cycle.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Validation & Case Studies (Right Col) -->
+                <div class="lg:col-span-7">
+                    <h2 class="text-sm font-bold tracking-widest text-blue-600 uppercase mb-2">07. Proof of Impact</h2>
+                    <h3 class="text-2xl font-bold text-slate-900 mb-8">Validation & Case Studies</h3>
+
+                    <div class="space-y-6">
+                        <!-- Case 1 -->
+                        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex gap-4 items-start">
+                            <div class="w-10 h-10 bg-emerald-50 rounded-lg flex items-center justify-center shrink-0 border border-emerald-100">
+                                <i data-lucide="line-chart" class="w-5 h-5 text-emerald-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-lg">EFRS Cost of Service Study</h4>
+                                <p class="text-slate-600 text-sm mt-2 leading-relaxed">A robust, defensible financial and operational analysis. This diagnostic provided the undeniable evidence base required to secure critical resourcing decisions.</p>
+                            </div>
+                        </div>
+
+                        <!-- Case 2 -->
+                        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex gap-4 items-start">
+                            <div class="w-10 h-10 bg-indigo-50 rounded-lg flex items-center justify-center shrink-0 border border-indigo-100">
+                                <i data-lucide="layout-template" class="w-5 h-5 text-indigo-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-lg">Integrated Strategic Frameworks</h4>
+                                <p class="text-slate-600 text-sm mt-2 leading-relaxed">Transformed executive conversations. Instead of disjointed updates, we tied risk, budget, and metrics into one cohesive, strategic narrative aligning operations with corporate strategy.</p>
+                            </div>
+                        </div>
+
+                        <!-- The Guarantee -->
+                        <div class="bg-blue-50 p-6 rounded-2xl border border-blue-100 flex gap-4 items-start">
+                            <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center shrink-0 shadow-md">
+                                <i data-lucide="shield-check" class="w-5 h-5 text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-blue-900 text-lg">The "So What?" Guarantee</h4>
+                                <p class="text-blue-800 text-sm mt-2 leading-relaxed font-medium">Every DSS deliverable must answer one question: <em>What do you do differently tomorrow because of this?</em> If it's not actionable, it's not done.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / CTA -->
+   <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+                <a href="mailto:DSS.Leadership@edmonton.ca" class="inline-flex items-center justify-center rounded-lg bg-slate-900 px-8 py-3.5 text-sm font-semibold text-white shadow-sm hover:bg-slate-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900 transition-all w-full sm:w-auto">
+                    <i data-lucide="mail" class="w-4 h-4 mr-2"></i>
+                    DSS.Leadership@edmonton.ca
+                </a>
+                
+                <a href="index.html" class="inline-flex items-center justify-center rounded-lg bg-white border border-slate-200 px-8 py-3.5 text-sm font-semibold text-slate-700 shadow-sm hover:bg-slate-50 transition-all w-full sm:w-auto">
+                    <i data-lucide="arrow-left" class="w-4 h-4 mr-2"></i>
+                    Back to Main Page
+                </a>
+            </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
 </body>
 </html>
